@@ -31,9 +31,9 @@ As seguintes configurações são essenciais para o correto funcionamento do IIS
 
 #### Software necessário
 
-1. Instalar a função do IIS no servidor
-2. Instalar o [URL Rewrite](http://www.iis.net/expand/URLRewrite)
-3. Instalar o [Application Routing Request](http://www.iis.net/expand/ApplicationRequestRouting)
+1. IIS
+2. [URL Rewrite](http://www.iis.net/expand/URLRewrite)
+3. [Application Routing Request](http://www.iis.net/expand/ApplicationRequestRouting)
 
 [Referência](blogs.msdn.microsoft.com/carlosag/2010/04/01/setting-up-a-reverse-proxy-using-iis-url-rewrite-and-arr/)
 
@@ -139,22 +139,19 @@ Disable-Mailbox -Identity $email
 
 #### Remove Office 365 Licensing from Admin Portal
 
-1. Connect to server Beppu.mpes.gov.br first and then open a PowerShell console
-2. Set the variable ```$credential``` before running the scripts
-3. Also set the variable ```$email``` to ensure the correct script execution
-4. Connect to Azure AD
+1. Connect to Azure AD
 
     ```powershell
-    Connect-AzureAD -Credential $credential
+    Connect-AzureAD
     ```
 
-5. Connect to Microsoft Online
+2. Connect to Microsoft Online
 
     ```powershell
-    Connect-MsolService -Credential $credential
+    Connect-MsolService
     ```
 
-6. Remove Microsoft Office licenses
+3. Remove Microsoft Office licenses
 
     ```powershell
     Set-MsolUserLicense -UserPrincipalName $email -RemoveLicenses "timpes:OFFICESUBSCRIPTION"
@@ -162,9 +159,7 @@ Disable-Mailbox -Identity $email
 
 ### Active Directory
 
-1. Connect to server Hadano.mpes.gov.br first and then open a PowerShell console
-2. Set the variable ```$userName``` before running the scripts
-3. Also set the variable ```$userDn``` to ensure the correct script execution
+1. Set the variable ```$userName``` before running the scripts
 
 #### Remove all domain groups
 
@@ -189,7 +184,7 @@ Disable-ADAccount -Identity $userName
 2. Move the user
 
     ```powershell
-    Move-ADObject -Identity $userDn -TargetPath "OU=Users_OFF,DC=mpes,DC=gov,DC=br"
+    Move-ADObject -Identity $userDn -TargetPath "OU=DisabledUsers,DC=CONTOSO,DC=local"
     ```
 
 ### Skype for Business
