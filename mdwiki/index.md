@@ -1,3 +1,3 @@
 # It works! ;-)
 
-![Place kitten](http://placekitten.com/g/250/250)
+![A kitten](http://placekitten.com/g/1200/300)
