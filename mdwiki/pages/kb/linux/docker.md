@@ -1,35 +1,6 @@
-# Linux Knowledge Base
+# Docker
 
-## Teste de envio de e-mail com cURL
-
-```bash
-curl --mail-from jbarigui@mpes.mp.br --mail-rcpt tmagalhaes@mpes.mp.br smtp://correio.mpes.gov.br
-```
-
-Uma vez que o comando acima foi inserido, ele irá aguardar a entrada do usuário para envio do e-mail. Uma vez que a mensagem for concluída, digite __"."__ (sem aspas) na última linha, para que o e-mail seja enviado imediatamente.
-
-```bash
-Subject: Teste
-Este é um e-mail de teste.
-.
-```
-
-## Teste de envio de e-mail com Telnet
-
-```bash
-telnet correio.mpes.mp.br 25
-EHLO mpes.mp.br
-mail from:jbarigui@mpes.mp.br
-rcpt to:tmagalhaes@mpes.mp.br
-DATA
-Subject:Teste
-Este é um e-mail de teste.
-.
-```
-
-## Docker
-
-### Easy Tech Stack
+## Easy Tech Stack
 
 Docker             | Easy Tech Stack
 -------------------|----------------------------
@@ -45,7 +16,7 @@ Orchestration      | Docker Swarm
 Runtime            | Docker
 HW/OS              | Docker for AWS/Azure
 
-### Self-Hosted Tech Stack
+## Self-Hosted Tech Stack
 
 Docker             | Self-Hosted Tech Stack
 -------------------|----------------------------
