@@ -4,8 +4,6 @@
 
 As seguintes configurações são essenciais para o correto funcionamento do IIS como proxy reverso.
 
-### Software necessário
-
 1. IIS
 2. [URL Rewrite](http://www.iis.net/expand/URLRewrite)
 3. [Application Routing Request](http://www.iis.net/expand/ApplicationRequestRouting)

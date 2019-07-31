@@ -2,6 +2,4 @@
 
 ## Desabilitar conta do Skype for Business
 
-```
-Disable-CsUser -Identity $email
-```
+```Disable-CsUser -Identity user@domain.local```
