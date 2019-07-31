@@ -2,20 +2,31 @@
 
 [gimmick:theme](cosmo)
 
-[Menu Item 1]()
+[Knowledge Base]()
 
-  * # SubMenu Heading 1
-  * [SubMenu Item 1](subitem1.md)
-  * [SubMenu Item 2](subitem2.md)
+  * # Microsoft
+  * [Active Directory](pages/kb/microsoft/adds.md)
+  * [Exchange Server](pages/kb/microsoft/exchange.md)
+  * [Hyper-V](pages/kb/microsoft/hyperv.md)
+  * [Internet Information Services](spages/kb/microsoft/iis.md)
+  * [Network Policy Server](pages/kb/microsoft/nps.md)
+  * [Office 365](pages/kb/microsoft/o365.md)
+  * [PowerShell](pages/kb/microsoft/powershell.md)
+  * [Skype For Business](pages/kb/microsoft/skype.md)
+  * [SQL Server](pages/kb/microsoft/sql.md)
   - - - -
-  * # SubMenu Heading 2
-  * [SubMenu Item 3](subitem3.md)
+  * # Linux
+  * [Apache](pages/kb/linux/apache.md)
+  * [Bind](pages/kb/linux/bind.md)
+  * [Docker](pages/kb/linux/docker.md)
+  * [Postfix](pages/kb/linux/postfix.md)
   - - - -
-  * # SubMenu Heading 3
-  * [SubMenu Item 3](subitem3.md)
+  * [VMware](pages/kb/vmware.md)
+  - - - -
+  * [Nutanix](pages/kb/nutanix.md)
+  - - - -
+  * [HP](pages/kb/hpe.md)
 
-[Menu Item 2](item2.md)
-- - - -
 [About me](pages/about.md)
 
 [gimmick:themechooser](Choose theme)
