@@ -14,7 +14,7 @@ As seguintes configurações são essenciais para o correto funcionamento do IIS
 
 ## Habilitar redirecionamento HTTPS
 
-```html
+```
             <rules>
                 <clear />
                 <rule name="HTTPS Enabled" enabled="true" stopProcessing="true">

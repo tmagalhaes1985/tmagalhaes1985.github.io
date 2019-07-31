@@ -4,15 +4,11 @@
 
 1. Instalação das features do Hyper-V
 
-    ```powershell
-    Install-WindowsFeature -name MultiPath-io,Hyper-V,Data-Center-Bridging,Failover-Clustering
-    ```
+    ```Install-WindowsFeature -name MultiPath-io,Hyper-V,Data-Center-Bridging,Failover-Clustering```
 
 2. Configuração do MultiPath I/O para storages HP 3PAR e EVA
 
-    ```powershell
-    PS C:\Windows\system32\mpclaim -r -I -d "3PARdataVV" "HP HSV340"
-    ```
+    ```mpclaim -r -I -d "3PARdataVV" "HP HSV340"```
 
 ## Chaves de produto AVMA
 
@@ -31,8 +27,4 @@ Windows Server 2016 Standard             |   slmgr /ipk C3RCX-M6NRP-6CXC9-TW2F2-
 Windows Server 2012 R2 Datacenter        |   slmgr /ipk Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW
 Windows Server 2012 R2 Standard          |   slmgr /ipk DBGBW-NPF86-BJVTX-K3WKJ-MTB6V
 
-Note! Para validar chave do Windows Server imediatamente, execute o comando a seguir:
-
-```powershell
-slmgr /ato
-```
+Note! Para validar chave do Windows Server imediatamente, basta executar o comando ```slmgr /ato```.

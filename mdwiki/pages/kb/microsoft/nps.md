@@ -4,12 +4,8 @@
 
 1. Para exportar a configuração do servidor NPS:
 
-    ```powershell
-    Export-NpsConfiguration -Path C:\TEMP\NpsConfig.xml
-    ```
+    ```Export-NpsConfiguration -Path C:\TEMP\NpsConfig.xml```
 
 2. Para importar a configuração do servidor NPS:
 
-    ```powershell
-    Import-NpsConfiguration -Path C:\TEMP\NpsConfig.xml
-    ```
+    ```Import-NpsConfiguration -Path C:\TEMP\NpsConfig.xml```
