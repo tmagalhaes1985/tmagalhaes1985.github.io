@@ -19,3 +19,36 @@
 2. Move the user
 
     ```Move-ADObject -Identity $userDn -TargetPath "OU=DisabledUsers,DC=CONTOSO,DC=local"```
+
+## Migrate FSMO roles
+
+### via NTDS Util
+
+```
+ntdsutil
+roles
+connections
+connect to server <servername>
+q
+Transfer naming master
+Transfer infrastructure master
+Transfer PDC
+Transfer RID master
+Transfer schema master
+q
+q
+```
+
+**NOTE**: Is recommended to estart the server and make sure you update your backup.
+
+### via PowerShell
+
+```Move-ADDirectoryServerOperationMasterRole -Identity <TargerDC> -OperationMasterRole <Role>```
+
+OperationMasterRole     |
+------------------------|
+pdcemulator             |
+ridmaster               |
+infrastructuremaster    |
+schemamaster            |
+domainnamingmaster      |
