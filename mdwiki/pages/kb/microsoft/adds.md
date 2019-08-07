@@ -24,8 +24,7 @@
 
 ### via NTDS Util
 
-```
-ntdsutil
+```ntdsutil
 roles
 connections
 connect to server <servername>
