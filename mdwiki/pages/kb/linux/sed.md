@@ -1,4 +1,4 @@
-# 15 comandos sed -i para deletar linhas de arquivos
+# sed
 
 ## Comandos para deletar linhas com base em sua posição no arquivo
 

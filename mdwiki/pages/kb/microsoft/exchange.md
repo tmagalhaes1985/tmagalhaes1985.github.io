@@ -1,7 +1,5 @@
 # Exchange Server
 
-Note! Configure a variável ```$email``` antes de executar quaisquer comandos abaixo para facilitar seu trabalho ;-)
-
 ## Verificar o log de mensagens recebidas por um usuário específico
 
 ```Get-TransportService | Get-MessageTrackingLog -ResultSize Unlimited -Start "06/30/2019 23:59:00" -End "07/30/2019 17:00:00" -Recipients $email | Select-Object | ft timestamp,eventid,source,messagesubject```
@@ -16,12 +14,11 @@ Note! Configure a variável ```$email``` antes de executar quaisquer comandos ab
 
 ## Confirmar que a movimentação de database ocorreu conforme esperado
 
-```Get-Mailbox -identity $email | fl database```
+```Get-Mailbox -Identity $email | fl Database```
 
 ## Habilitar auditoria da mailbox em um usuário específico
 
-```
-Set-Mailbox -Identity $email -AuditAdmin Update,Copy,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf,MessageBind
+```Set-Mailbox -Identity $email -AuditAdmin Update,Copy,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf,MessageBind
 Set-Mailbox -Identity $email -AuditDelegate Update,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf
 Set-Mailbox -Identity $email -AuditOwner Update,Move,MoveToDeletedItems,SoftDelete,HardDelete
 Set-Mailbox -Identity $email -AuditEnabled $true
