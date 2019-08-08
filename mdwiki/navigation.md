@@ -3,17 +3,13 @@
 [gimmick:theme](cosmo)
 
 [Knowledge Base]()
-
 * [HP](pages/kb/hpe.md)
-
 - - - -
-# Linux
 * [Apache](pages/kb/linux/apache.md)
 * [Bind](pages/kb/linux/bind.md)
 * [Docker](pages/kb/linux/docker.md)
 * [Postfix](pages/kb/linux/postfix.md)
 - - - -
-# Windows
 * [Active Directory](pages/kb/microsoft/adds.md)
 * [Exchange Server](pages/kb/microsoft/exchange.md)
 * [Hyper-V](pages/kb/microsoft/hyperv.md)
