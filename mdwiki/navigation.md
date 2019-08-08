@@ -5,27 +5,28 @@
 [Wiki]()
 
   * # Linux
-  * [Apache](pages/kb/linux/apache.md)
-  * [Bind](pages/kb/linux/bind.md)
-  * [Docker](pages/kb/linux/docker.md)
-  * [HAProxy](pages/kb/linux/haproxy.md)
-  * [NFS](pages/kb/linux/nfs.md)
-  * [Postfix](pages/kb/linux/postfix.md)
-  * [Sed](pages/kb/linux/sed.md)
+  * [Apache](pages/kb/linux/Apache.md)
+  * [Bind](pages/kb/linux/Bind.md)
+  * [Docker](pages/kb/linux/Docker.md)
+  * [HAProxy](pages/kb/linux/HAProxy.md)
+  * [NFS](pages/kb/linux/NFS.md)
+  * [Postfix](pages/kb/linux/Postfix.md)
+  * [Sed](pages/kb/linux/Sed.md)
   - - - -
   * # Microsoft
-  * [Exchange Server](pages/kb/microsoft/exchange.md)
-  * [Group Policy](pages/kb/microsoft/gpo.md)
-  * [Hyper-V](pages/kb/microsoft/hyperv.md)
-  * [Network Policy Server](pages/kb/microsoft/nps.md)
-  * [Office 365](pages/kb/microsoft/o365.md)
-  * [PowerShell](pages/kb/microsoft/powershell.md)
-  * [Skype For Business](pages/kb/microsoft/skype.md)
-  * [SQL Server](pages/kb/microsoft/sql.md)
+  * [Active Directory](pages/kb/microsoft/ActiveDirectory.md)
+  * [Exchange Server](pages/kb/microsoft/ExchangeServer.md)
+  * [Group Policy](pages/kb/microsoft/GroupPolicy.md)
+  * [Hyper-V](pages/kb/microsoft/Hyper-V.md)
+  * [Network Policy Server](pages/kb/microsoft/NPS.md)
+  * [Office 365](pages/kb/microsoft/Office365.md)
+  * [PowerShell](pages/kb/microsoft/PowerShell.md)
+  * [Skype For Business](pages/kb/microsoft/SkypeForBusiness.md)
+  * [SQL Server](pages/kb/microsoft/SQLServer.md)
   - - - -
   * # Monitoramento
-  * [Zabbix](pages/kb/zabbix.md)
+  * [Zabbix](pages/kb/Zabbix.md)
 
-[Sobre](pages/about.md)
+[Sobre](pages/About.md)
 - - - -
 [gimmick:themechooser](Selecione um tema)
