@@ -1,6 +1,8 @@
 # Zabbix
 
-## Implantação do Zabbix Appliance num host Docker
+## Implantação do Zabbix Appliance em um container
+
+O Zabbix Appliance consiste na aplicação + banco de dados numa única solução.
 
 ```curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -15,6 +17,14 @@ Depois de rodar todos os comandos acima, basta esperar alguns minutos e abrir o 
 - **Pass**: zabbix
 
 (Troquem ```<server>``` pelo IP ou hostname do servidor aonde você instalou o Zabbix)
+
+## Instalação do serviço de monitoramento do Zabbix em máquinas Linux
+
+Para instalar o serviço de monitoramento do Zabbix em máquinas Windows, basta executar os comandos abaixo:
+
+```yum -y install zabbix-agent```
+
+```systemctl start zabbix-agent```
 
 ## Instalação do serviço de monitoramento do Zabbix em máquinas Windows
 
