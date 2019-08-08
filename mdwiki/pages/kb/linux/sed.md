@@ -1,6 +1,8 @@
 # sed
 
-Sed é um editor de fluxo. Um editor de fluxo é usado para executar transformações básicas de texto em um fluxo de entrada (um arquivo ou entrada de um pipeline). Embora de certa forma semelhante a um editor que permite edições com script (como ed), o sed funciona fazendo apenas uma passagem sobre as entradas e, consequentemente, é mais eficiente.
+Sed é um editor de fluxo usado para executar transformações básicas de texto em um fluxo de entrada (um arquivo ou entrada de um pipeline).
+
+O sed basicamente faz uma passagem sobre as entradas, sendo consequentemente mais eficiente que editores que permitem edições com script (como o ed).
 
 ## Comandos para deletar linhas com base em sua posição no arquivo
 
