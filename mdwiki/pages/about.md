@@ -1,15 +1,13 @@
 # About Me
 
 ![Profile pic](https://media.licdn.com/dms/image/C4E03AQHzuUTPyKd0dg/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=84qs_9PMSewg-_7aT-8BDjo_jj6NJFMls9ScCHFRu24)
-- NPP, VCP, MCSE, RHCE, LPIC-3, ITILF, SNIA, CompTIA Server+, and some other certifications
-- Systems Engineer @ MPES
+Working in the IT industry since 2001. I've got specialized myself in architecture and design of Internet distributed systems. I've been using DevOps methodologies, with vendor-neutral approach, focused on business continuity and continuous delivery.
+
+- NPP, VCP, MCSE, RHCE, LPIC-3, ITILF, SNIA, CompTIA Server+ (and some other certifications)
+- Currently devopsing high available systems at MPES
 - Gratuated in Business Administration
-- MBA in Project Management
-- Based in Vila Velha, Espírito Santo, Brazil
-
-I'm a Systems Engineer with 16+ years of experience, specialized in architecture and design of cloud distributed systems.
-
-I've been using DevOps methodologies, with vendor-neutral approach, focused on business continuity and continuous delivery.
+- Master in Project Management
+- Based in Vila Velha-ES, Brazil
 
 ## Professional history
 
