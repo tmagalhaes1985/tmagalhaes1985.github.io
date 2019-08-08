@@ -1,12 +1,10 @@
 # Sobre
 
-![Profile pic](https://media.licdn.com/dms/image/C4E03AQHzuUTPyKd0dg/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=84qs_9PMSewg-_7aT-8BDjo_jj6NJFMls9ScCHFRu24)
-
+![](http://placekitten.com/g/400/400)
 Prazer, me chamo Thiago Magalhães, administrador de empresas por formação, engenheiro de sistemas de profissão.
-
-São mais de 16 anos de experiência na área técnica de TI, tendo executado centenas de projetos de missão crítica em empresas de grande porte.
-
-Apesar da nomenclatura ser recente, trabalho utilizando metodologias DevOps e Ágeis desde muito antes do marketing criar seus nomes pomposos, com abordagem neutra com relação a fornecedores de tecnologias e nuvens, com foco na entrega contínua, arquitetura de soluções e melhores práticas (se é missão crítica, o negócio não pode parar).
+Estou desde 2002 implantando de projetos de missão crítica de TI em empresas de pequeno, médio e grande porte, incluindo Governo e o setor de Óleo e Gás.
+Apesar do recente boom da nomenclatura, utilizo metodologias ágeis e DevOps desde muito antes do marketing criar esses nomes pomposos.
+Trabalho com abordagem neutra com relação a fornecedores de tecnologias e provedores de nuvem, com foco na entrega contínua, arquitetura de soluções e melhores práticas (se é missão crítica, o negócio não pode parar).
 
 ## Detalhando um pouco mais
 
