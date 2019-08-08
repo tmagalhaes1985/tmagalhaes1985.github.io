@@ -2,7 +2,7 @@
 
 [gimmick:theme](cosmo)
 
-[Knowledge Base](#tmagalhaes1985-wiki)
+[Knowledge Base]()
 
 * [HP](pages/kb/hpe.md)
 
