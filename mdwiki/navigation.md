@@ -7,14 +7,13 @@
 * [HP](pages/kb/hpe.md)
 
 - - - -
-
+# Linux
 * [Apache](pages/kb/linux/apache.md)
 * [Bind](pages/kb/linux/bind.md)
 * [Docker](pages/kb/linux/docker.md)
 * [Postfix](pages/kb/linux/postfix.md)
-
 - - - -
-
+# Windows
 * [Active Directory](pages/kb/microsoft/adds.md)
 * [Exchange Server](pages/kb/microsoft/exchange.md)
 * [Hyper-V](pages/kb/microsoft/hyperv.md)
@@ -24,17 +23,11 @@
 * [PowerShell](pages/kb/microsoft/powershell.md)
 * [Skype For Business](pages/kb/microsoft/skype.md)
 * [SQL Server](pages/kb/microsoft/sql.md)
-
 - - - -
-
 * [Nutanix](pages/kb/nutanix.md)
-
 - - - -
-
 * [VMware](pages/kb/vmware.md)
-
 - - - -
-
 * [Zabbix](pages/kb/zabbix.md)
 
 [About me](pages/about.md)
