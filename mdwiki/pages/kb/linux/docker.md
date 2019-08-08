@@ -13,7 +13,7 @@ O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers. 
 
 1. Instale os pré-requisitos
 
-    ```sudo yum install -y yum-utils device-mapper-persistent-data lvm2```
+    ```sudo yum install -y yum-utils device-mapper-persistent-data lvm2 py-pip python-dev libffi-dev openssl-dev gcc libc-dev make```
 
 2. Instale o Docker
 
@@ -21,7 +21,7 @@ O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers. 
 
     ```sudo sh get-docker.sh```
 
-**OBS**: Para executar o Docker como usuário comum (sem privilégios root), adicione seu usuário ao grupo "docker"
+    **OBS**: Para executar o Docker como usuário comum (sem privilégios root), adicione seu usuário ao grupo "docker"
 
     ```sudo usermod -aG docker $USER```
 
@@ -43,7 +43,11 @@ Seu uso se dá em três etapas:
 2. Defina os serviços que compõem seu aplicativo num arquivo docker-compose.yml para que eles possam ser executados juntos em um ambiente isolado
 3. Execute o docker-compose e seu aplicativo será completamente iniciado.
 
+### Instalando o Docker Compose
 
+```sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose```
+
+```sudo chmod +x /usr/local/bin/docker-compose```
 
 ## Easy Tech Stack
 
