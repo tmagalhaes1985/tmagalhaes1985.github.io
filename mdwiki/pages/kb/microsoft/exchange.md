@@ -18,12 +18,15 @@
 
 ## Habilitar auditoria da mailbox em um usuário específico
 
-```Set-Mailbox -Identity $email -AuditAdmin Update,Copy,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf,MessageBind
-Set-Mailbox -Identity $email -AuditDelegate Update,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf
-Set-Mailbox -Identity $email -AuditOwner Update,Move,MoveToDeletedItems,SoftDelete,HardDelete
-Set-Mailbox -Identity $email -AuditEnabled $true
-Set-Mailbox -Identity $email -AuditLogAgeLimit 10
-```
+```Set-Mailbox -Identity $email -AuditAdmin Update,Copy,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf,MessageBind```
+
+```Set-Mailbox -Identity $email -AuditDelegate Update,Move,MoveToDeletedItems,SoftDelete,HardDelete,FolderBind,SendAs,SendOnBehalf```
+
+```Set-Mailbox -Identity $email -AuditOwner Update,Move,MoveToDeletedItems,SoftDelete,HardDelete```
+
+```Set-Mailbox -Identity $email -AuditEnabled $true```
+
+```Set-Mailbox -Identity $email -AuditLogAgeLimit 10```
 
 ## Desabilitar a mailbox de um usuário específico
 

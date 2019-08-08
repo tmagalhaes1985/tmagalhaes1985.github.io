@@ -1,4 +1,4 @@
-# Zabbix Knowledge Base
+# Zabbix
 
 ## Implantação do Zabbix Appliance num host Docker
 

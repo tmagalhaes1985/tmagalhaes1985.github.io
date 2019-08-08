@@ -2,7 +2,7 @@
 
 [gimmick:theme](cosmo)
 
-[Knowledge Base]()
+[Wiki]()
 
   * # Linux
   * [Apache](pages/kb/linux/apache.md)
@@ -14,11 +14,9 @@
   * [Sed](pages/kb/linux/sed.md)
   - - - -
   * # Microsoft
-  * [Active Directory](pages/kb/microsoft/adds.md)
   * [Exchange Server](pages/kb/microsoft/exchange.md)
   * [Group Policy](pages/kb/microsoft/gpo.md)
   * [Hyper-V](pages/kb/microsoft/hyperv.md)
-  * [Internet Information Services](pages/kb/microsoft/iis.md)
   * [Network Policy Server](pages/kb/microsoft/nps.md)
   * [Office 365](pages/kb/microsoft/o365.md)
   * [PowerShell](pages/kb/microsoft/powershell.md)
@@ -28,6 +26,6 @@
   * # Monitoramento
   * [Zabbix](pages/kb/zabbix.md)
 
-[About me](pages/about.md)
+[Sobre](pages/about.md)
 - - - -
 [gimmick:themechooser](Choose theme)
