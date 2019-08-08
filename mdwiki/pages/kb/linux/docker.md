@@ -1,5 +1,7 @@
 # Docker
 
+https://www.docker.com/
+
 O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers. Rodar containers é legal porque eles são:
 
 - **Flexíveis**: Até os aplicativos mais complexos podem rodar em containers
