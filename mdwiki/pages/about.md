@@ -1,32 +1,33 @@
 # About Me
 
 ![Profile pic](https://media.licdn.com/dms/image/C4E03AQHzuUTPyKd0dg/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=84qs_9PMSewg-_7aT-8BDjo_jj6NJFMls9ScCHFRu24)
+I'm a Systems Engineer with 16+ years of experience, specialized in architecture and design of cloud distributed systems.
 
-- NPP, VCP, MCSE, RHCE, LPIC-3, ITILF (and some other certifications...)
+I've been using DevOps methodologies, with vendor-neutral approach, focused on business continuity and continuous delivery.
+
+- NPP, VCP, MCSE, RHCE, LPIC-3, ITILF, SNIA, CompTIA Server+, and some other certifications
 - Systems Engineer @ MPES
+- Gratuated in Business Administration
+- MBA in Project Management
 - Based in Vila Velha, Espírito Santo, Brazil
 
-I'm a Systems Engineer with 16+ years of experience. I have gratuated in Business Administration and got myself specialized in Architecture and Design of distributed web systems.
-
-As a consultant, I've got myself experienced using Cloud and DevOps methodologies, with vendor-neutral approach, focused on business continuity and continuous delivery.
-
-## Curriculum Vitae
+## Professional history
 
 - Senior Infrastructure Specialist, Ministério Público do Espírito Santo (Apr 2019 – Present)
 
-  At MPES, I lead a team of 11 analysts, and also support management identifying gaps and opportunities for improvement, executing tasks such as:
+  I'm currently leading a team of 11 analysts, and also support IT management identifying gaps and opportunities for improvement, executing tasks such as:
 
-  - Deployment automation using Ansible, PowerShell and Python;
-  - Management of virtualized legacy services in Hyper-V;
-  - Management of containerized services in Kubernetes;
-  - Planning the move of containerized services to the Azure Cloud;
+  - Deployment automation using Ansible and Teraform;
+  - Management of virtualized workloads in Hyper-V;
+  - Management of containerized services in 4 Kubernetes clusters and some stand-alone Docker hosts;
+  - Moving of Cloud-oriented workloads to Azure Cloud;
   - Risks and vulnerabilities evaluation;
-  - Data Center hardware (HP c7000 Blades and 3PAR and EVA Storages) and bare-metal SQL Server Databases support See less
+  - Data Center hardware (HP c7000 Blades and 3PAR and EVA Storages) and bare-metal SQL Server Databases support
 
 - Senior Infrastructure Specialist, pag! (Jan 2019 – Apr 2019)
   - Oracle Cloud management and support, where the production Database was running;
   - I was also responsible for the on-premisse VMware environment, where many production Docker hosts are hosted;
-  - Border networking risks and vulnerabilities using FortiGate appliances; See less
+  - Border networking risks and vulnerabilities using FortiGate appliances;
 
 - Senior System Engineer, Decatron (Jul 2012 – Jul 2018)
   - Provide Technical Leadership on the team of Analysts and Technicians;
@@ -39,7 +40,7 @@ As a consultant, I've got myself experienced using Cloud and DevOps methodologie
   - Provide Technical Leadership on the team of Analysts and Technicians;
   - Knowledge transfer to the team;
   - Support management in identifying gaps and opportunities for improvement;
-  - Design, implementation and support for VMware Software Defined Datacenter solutio... See more
+  - Design, implementation and support for VMware Software Defined Datacenter solutions.
 
 - Network Administrator, Lan Designers (Oct 2008 – Jul 2010)
   - Responsible for all Server build processes and procedures;
@@ -48,8 +49,7 @@ As a consultant, I've got myself experienced using Cloud and DevOps methodologie
   - Administrations and Support for Datacenter environment (Citrix XenServer and XenApp, Microsoft Exchange, Dell Hardware, IPTables firewalls);
   - Guide solutions implementations within Hardware and Software vendors.
 
-- Regional IT Technical Leader, AmBev (May 2005 – Oct 2008)
-  - Provide Technical Leadership on the team of Analysts and Technicians;
-  - Level 3 support in a Windows and UNIX mission-critical environment;
-  - Server software patching and installation;
-  - Server hardware decommissioning and replacement.
+- Regional IT Tech Lead (RJ), AmBev (May 2005 – Oct 2008)
+  - Provide Technical Leadership to a team of 6 technicians;
+  - Level 3 support in a UNIX mission-critical environment;
+  - Server cluster deployment and management.
