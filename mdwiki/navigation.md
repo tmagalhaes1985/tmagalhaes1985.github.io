@@ -28,4 +28,4 @@
 
 [Sobre](pages/about.md)
 - - - -
-[gimmick:themechooser](Choose theme)
+[gimmick:themechooser](Selecione um tema)
