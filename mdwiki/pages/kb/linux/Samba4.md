@@ -6,7 +6,7 @@ O Samba é um conjunto Software que fornece serviços de arquivo e impressão pa
 
 O Samba é um componente importante para integrar servidores e desktops Linux/Unix em ambientes do Active Directory. Pode funcionar como um controlador de domínio ou como um servidor membro do domínio.
 
-## Samba 4 como controlador de domínio
+## Implantação do Samba 4 como controlador de domínio
 
 **OBS**: Se você estiver instalando o Samba em um ambiente de produção, é recomendável executar dois ou mais DCs por motivos de failover.
 
@@ -15,7 +15,7 @@ O Samba como DC suporta:
 - Servidor LDAP integrado como back end do AD
 - Centro de distribuição de chaves Heimdal Kerberos (KDC)
 
-### Planejamento da instalação
+### Planejamento da implantação
 
 1. Selecione um nome de host para seu AD DC. Não use termos NT4 como nome do host (como PDC ou BDC). Esses modos não existem no Active Directory e podem causar confusão.
 2. Selecione um domínio DNS para sua floresta do AD. O nome também será usado como o domínio Kerberos do AD. Este domínio DNS não poderá ser alterado posteriormente. Não use domínios DNS com TLD .local, pois este TLD é usado pelo daemon do Avahi.
@@ -24,7 +24,7 @@ O Samba como DC suporta:
 
 ### Instalação do Samba 4
 
-1. Instale o repositório EPEL
+1. Configure o repositório EPEL
 
     RHEL/CentOS 6:
 
@@ -48,10 +48,6 @@ O Samba como DC suporta:
         lmdb-devel jansson-devel gpgme-devel pygpgme libarchive-devel
     ```
 
-    **OBS**: Se o controlador de domínio for executar também um servidor de impressão (não recomendado), instale também o CUPS:
-
-    ```yum -y install cups-devel```
-
 3. Instale o Samba 4
 
     ```yum -y install samba```
@@ -60,16 +56,14 @@ O Samba como DC suporta:
 
     ```samba-tool domain provision --server-role=dc --use-rfc2307 --dns-backend=SAMBA_INTERNAL --realm=seudominio.corp --domain=SEUDOMINIO --adminpass=Passw0rd```
 
-    **OBS**: Substitua seudominio.corp pelo nome DNS do seu domíno e SEUDOMINIO pelo nome NETBIOS (sem TLD)
+    **OBS**: Substitua ```seudominio.corp``` pelo nome DNS do seu domíno e ```SEUDOMINIO``` pelo nome NETBIOS (sem TLD)
 
 5. Configure o arquivo /etc/resolv.conf
 
     ```
-    search seudominio.corp
-    nameserver 192.168.0.10
+    search seudominio.corp # substituir pelo nome DNS do seu dominio
+    nameserver 192.168.0.10 # substituir pelo IP do seu servidor Samba 4 AD
     ```
-
-    **OBS**: Substitua seudominio.corp pelo nome DNS do seu domínio e 192.168.10 pelo IP do seu servidor Samba 4 AD.
 
 6. Crie uma zona DNS de pesquisa reversa
 
@@ -87,8 +81,6 @@ O Samba como DC suporta:
 
     ```yum -y install chrony```
 
-    Edite o arquivo /etc/chrony/chrony.conf:
-
     ```
     echo "keyfile /etc/chrony/chrony.keys
     driftfile /var/lib/chrony/chrony.drift
@@ -103,11 +95,11 @@ O Samba como DC suporta:
     ntpsigndsocket  /usr/local/samba/var/lib/ntp_signd" > /etc/chrony/chrony.conf
     ```
 
-    Configure o chrony para inicializar junto do sistema e inicie o serviço:
+    Configure o chrony para inicializar junto do sistema e (re)inicie o serviço:
 
-    ```systemctl enable chronyd && systemctl start chronyd```
+    ```systemctl enable chronyd && systemctl restart chronyd```
 
-### Testando se sua configuração está ok
+### Validando a implantação
 
 1. Verifique a existência dos compartilhamentos ```netlogon``` e ```sysvol```
 
@@ -138,5 +130,3 @@ O Samba como DC suporta:
     Liste os tickets em cache:
 
     ```klist```
-
-## Samba 4 como um servidor membro de um domíno
