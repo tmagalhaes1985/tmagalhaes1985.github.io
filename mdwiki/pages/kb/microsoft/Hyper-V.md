@@ -2,15 +2,15 @@
 
 ## Sobre o Hyper-V
 
-## Instalação das features do Hyper-V
+O Hyper-V permite executar vários sistemas operacionais como máquinas virtuais no Windows, fornecendo a virtualização de hardware.
+
+Isso significa que cada máquina virtual é executada em hardware virtual. O Hyper-V permite que você crie discos rígidos virtuais, comutadores virtuais e um número de outros dispositivos virtuais que podem ser adicionados a máquinas virtuais.
+
+## Implantação do Hyper-V
 
 ```Install-WindowsFeature -name MultiPath-io,Hyper-V,Data-Center-Bridging,Failover-Clustering```
 
-## Configuração do MultiPath I/O para storages HP 3PAR e EVA
-
-```mpclaim -r -I -d "3PARdataVV" "HP HSV340"```
-
-## Chaves de produto AVMA (para ativação de máquinas virtuais)
+## Chaves de produto para ativação de máquinas virtuais
 
 VERSÃO                                   |   CHAVE
 -----------------------------------------|-------------------------------------------
