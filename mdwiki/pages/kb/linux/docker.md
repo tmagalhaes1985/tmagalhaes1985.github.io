@@ -1,8 +1,6 @@
 # Docker
 
-## Sobre o Docker
-
-https://www.docker.com/
+## Sobre o [Docker](https://www.docker.com/)
 
 O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers. Rodar containers é legal porque eles são:
 

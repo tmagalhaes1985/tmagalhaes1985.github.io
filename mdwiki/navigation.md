@@ -16,9 +16,11 @@
   - - - -
   * # Microsoft
   * [Active Directory](pages/kb/microsoft/ActiveDirectory.md)
+  * [Certificate Services](pages/kb/microsoft/CertificateServices.md)
   * [Exchange Server](pages/kb/microsoft/ExchangeServer.md)
   * [Group Policy](pages/kb/microsoft/GroupPolicy.md)
   * [Hyper-V](pages/kb/microsoft/Hyper-V.md)
+  * [Internet Information Server](pages/kb/microsoft/IIS.md)
   * [Network Policy Server](pages/kb/microsoft/NPS.md)
   * [Office 365](pages/kb/microsoft/Office365.md)
   * [PowerShell](pages/kb/microsoft/PowerShell.md)

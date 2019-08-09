@@ -1,10 +1,10 @@
 # Exchange Server
 
-## Sobre o Exchange Server
+## Sobre o [Exchange Server](https://docs.microsoft.com/pt-br/exchange/exchange-server)
 
 ## Verificar o log de mensagens recebidas por um usuário específico
 
-```Get-TransportService | Get-MessageTrackingLog -ResultSize Unlimited -Start "06/30/2019 23:59:00" -End "07/30/2019 17:00:00" -Recipients $email | Select-Object | ft timestamp,eventid,source,messagesubject```
+```Get-TransportService | Get-MessageTrackingLog -ResultSize Unlimited -Start "06/30/2008 23:59:00" -End "07/30/2019 17:00:00" -Recipients $email | Select-Object | ft timestamp,eventid,source,messagesubject```
 
 ## Mover um usuário específico de database
 

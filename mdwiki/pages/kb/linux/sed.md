@@ -1,6 +1,6 @@
 # sed
 
-## Sobre o Sed
+## Sobre o [Sed](http://sed.sourceforge.net/)
 
 Sed é um editor de fluxo usado para executar transformações básicas de texto em um fluxo de entrada (um arquivo ou entrada de um pipeline).
 
