@@ -2,14 +2,14 @@
 
 ## Sobre o Docker
 
-O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers. Rodar containers é legal porque eles são:
+O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers. Containers são uma tecnologia interessante porque são:
 
-- **Flexíveis**: Até os aplicativos mais complexos podem rodar em containers
-- **Leves**: containers aproveitam e compartilham o kernel do host Docker
-- **Intercambiáveis**: você pode implantar atualizações e on-the-fly
-- **Portáteis**: você pode rodar localmente, na nuvem ou em qualquer lugar
-- **Escaláveis**: você pode aumentar e distribuir automaticamente as réplicas dos containers
-- **Empilháveis**: você pode empilhar serviços verticalmente on-the-fly
+- **Flexíveis**: Até aplicativos complexos podem rodar em containers
+- **Leves**: Aproveitam e compartilham o kernel do host Docker
+- **Intercambiáveis**: Você pode implantar atualizações e on-the-fly
+- **Portáteis**: Você pode rodar localmente, na nuvem ou em qualquer lugar
+- **Escaláveis**: Você pode aumentar e distribuir automaticamente as réplicas dos containers de acordo com a demanda dos seus usuários
+- **Empilháveis**: Você pode empilhar serviços verticalmente on-the-fly
 
 ## Instalação do Docker
 
@@ -51,37 +51,21 @@ Seu uso se dá em três etapas:
 
 ```sudo chmod +x /usr/local/bin/docker-compose```
 
-## Easy Tech Stack
+## Tech Stacks
 
-Docker             | Easy Tech Stack
--------------------|----------------------------
-Swarm GUI          | Portainer
-Central Monitoring | Librato, Sysdig
-Central Logging    | Docker for AWS/Azure
-Layer 7 Proxy      | Flow-Proxy, Traefik
-Registry           | Docker Hub, Quay
-CI/CD              | Codeship, TravisCI
-Storage            | Docker for AWS/Azure
-Networking         | Docker Swarm
-Orchestration      | Docker Swarm
-Runtime            | Docker
-HW/OS              | Docker for AWS/Azure
-
-## Self-Hosted Tech Stack
-
-Docker             | Self-Hosted Tech Stack
--------------------|----------------------------
-Swarm GUI          | Portainer
-Central Monitoring | Prometheus + Grafana
-Central Logging    | ELK
-Layer 7 Proxy      | Flow-Proxy, Traefik
-Registry           | Docker Distribution + Portus
-CI/CD              | Jenkins
-Storage            | REX-Ray
-Networking         | Docker Swarm
-Orchestration      | Docker Swarm
-Runtime            | Docker
-HW/OS              | InfraKit, Terraform
+Docker             | Easy Tech Stack        | Self-Hosted Tech Stack
+-------------------|------------------------|--------------------------
+Swarm GUI          | Portainer              | Portainer
+Central Monitoring | Librato, Sysdig        | Prometheus + Grafana
+Central Logging    | Docker for AWS/Azure   | ELK
+Layer 7 Proxy      | Flow-Proxy, Traefik    | Flow-Proxy, Traefik
+Registry           | Docker Hub, Quay       | Docker Distribution + Portus
+CI/CD              | Codeship, TravisCI     | Jenkins
+Storage            | Docker for AWS/Azure   | REX-Ray
+Networking         | Docker Swarm           | Docker Swarm
+Orchestration      | Docker Swarm           | Docker Swarm
+Runtime            | Docker                 | Docker
+HW/OS              | Docker for AWS/Azure   | InfraKit, Terraform
 
 ## Comparação dos caminhos do Docker em sistemas Linux e Windows
 
