@@ -1,5 +1,3 @@
-# HAProxy
+# [HAProxy](http://www.haproxy.org/)
 
 ## Sobre o HAProxy
-
-http://www.haproxy.org/

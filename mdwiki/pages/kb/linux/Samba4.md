@@ -1,6 +1,6 @@
-# Samba 4
+# [Samba 4](https://www.samba.org/)
 
-## Sobre o [Samba 4](https://www.samba.org/)
+## Sobre o Samba 4
 
 O Samba é um conjunto Software que fornece serviços de arquivo e impressão para clientes SMB/CIFS, incluindo sistemas operacionais Microsoft Windows. O Samba está disponível gratuitamente sob a Licença Pública Geral GNU.
 
