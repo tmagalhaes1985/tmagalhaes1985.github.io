@@ -1,5 +1,7 @@
 # Group Policy
 
+## Sobre as Políticas de Grupo
+
 ## Resetar todas as GPOs aplicadas a um computador para o padrão
 
 Abra um prompt de comando e execute os seguintes comandos na sequência:

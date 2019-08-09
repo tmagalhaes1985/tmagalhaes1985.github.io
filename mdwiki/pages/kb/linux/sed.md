@@ -1,5 +1,7 @@
 # sed
 
+## Sobre o Sed
+
 Sed é um editor de fluxo usado para executar transformações básicas de texto em um fluxo de entrada (um arquivo ou entrada de um pipeline).
 
 O sed basicamente faz uma passagem sobre as entradas, sendo consequentemente mais eficiente que editores que permitem edições com script (como o ed).

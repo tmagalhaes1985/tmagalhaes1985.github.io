@@ -1,5 +1,7 @@
 # Active Directory
 
+## Sobre o Active Directory
+
 O AD implementa um serviço de diretório LDAP que armazena informações sobre objetos em redes de computadores.
 
 A exemplo do NIS, surgiu da necessidade de se ter um único diretório corporativo para usuários acessarem múltiplos sistemas de rede com a centralização de senhas fornecida pelo AD.
