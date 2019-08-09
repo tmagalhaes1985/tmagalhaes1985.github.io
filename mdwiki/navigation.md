@@ -11,6 +11,7 @@
   * [HAProxy](pages/kb/linux/HAProxy.md)
   * [NFS](pages/kb/linux/NFS.md)
   * [Postfix](pages/kb/linux/Postfix.md)
+  * [Samba 4](pages/kb/linux/Samba4.md)
   * [Sed](pages/kb/linux/Sed.md)
   - - - -
   * # Microsoft
