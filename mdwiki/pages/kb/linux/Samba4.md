@@ -186,3 +186,72 @@ Em um membro do domínio Samba, você pode:
     ```smbcontrol all reload-config```
 
 ## Implantação do Samba 4 como servidor de impressão
+
+**OBS1**: O Samba 4 já deve estar instalado para que os demais passos abaixo possam ser seguidos.
+
+**OBS2**: Após realizar a configuração do servidor, as pemissões podem ser dadas através do MMC de Gerenciamento de Impressoras através de uma estação de trabalho Windows.
+
+1. Instale o CUPS
+
+    ```yum -y install cups```
+
+2. Crie os diretórios necessários
+
+    ```mkdir -p /var/spool/samba/```
+
+    ```chmod 1777 /var/spool/samba/```
+
+    ```mkdir -p /srv/samba/printer_drivers/```
+
+    ```chgrp -R "SAMDOM\Domain Admins" /srv/samba/printer_drivers/```
+    
+    ```chmod -R 2775 /srv/samba/printer_drivers/```
+
+    ```chmod 755 /usr/local/bin/Pdfprint.sh```
+
+1. Habilite o serviço ```spoolssd``` editando a sessão [global] no arquivo smb.conf:
+
+    ```
+    rpc_server:spoolss = external
+    rpc_daemon:spoolssd = fork
+    spoolss: architecture = Windows x64
+    printing = CUPS
+    ```
+
+2. Edite a sessão [printers] no seu arquivo smb.conf:
+
+    ```
+    [printers]
+        path = /var/spool/samba/
+        printable = yes
+    ```
+
+3. Edite a sessão [PDFprinter] no seu arquivo smb.conf
+
+    ```
+    [PDFprinter]
+            comment = Samba Virtual PDF Printer
+            path = /var/spool/samba
+            printable = Yes
+            lpq command =
+            lprm command =
+            print command = /usr/local/bin/Pdfprint.sh -s /var/spool/samba/%s -d /home/%U -o %U -m 600
+    ```
+
+4. Edite a sessão [print$] no seu arquivo smb.conf
+
+    ```
+    [print$]
+        path = /srv/samba/printer_drivers/
+        read only = no
+    ```
+
+5. Para conceder o privilégio ao grupo Admins. Do Domínio, insira:
+   
+   ```net rpc rights grant "SEUDOMINIO\Domain Admins" SePrintOperatorPrivilege -U "SEUDOMINIO\administrator"```
+
+6. Recarregue as configurações do Samba 4
+
+    ```smbcontrol all reload-config```
+
+**OBS**: Para adicionar novas impressoras, abra a interface web do CUPS pelo seu navegador. Exemplo: https://SambaPrintSrv:631/admin
