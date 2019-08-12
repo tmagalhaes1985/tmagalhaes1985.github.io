@@ -130,3 +130,59 @@ O Samba como DC suporta:
     Liste os tickets em cache:
 
     ```klist```
+
+## Implantação do Samba 4 como membro do domínio
+
+Um membro do domínio Samba é uma máquina Linux associada a um domínio que executa o Samba e não fornece serviços de domínio, como um controlador de domínio primário (PDC) NT4 ou controlador de domínio (DC) do Active Directory (AD).
+
+Em um membro do domínio Samba, você pode:
+
+- Use usuários e grupos de domínio em ACLs locais em arquivos e diretórios.
+- Configure compartilhamentos para atuar como um servidor de arquivos.
+- Configure os serviços de impressão para atuar como um servidor de impressão.
+- Configure o PAM para permitir que os usuários do domínio façam logon localmente ou se autentiquem nos serviços locais instalados.
+
+### Passo a passo
+
+1. Configure o /etc/resolv.conf
+2. Valide a resolução de nomes
+3. Configure a sincronização de tempo
+4. Instale o Samba 4
+
+    ```yum -y install samba```
+
+5. Adicione o servidor ao domínio
+
+    ```net ads join -U administrator```
+
+## Implantação do Samba 4 como servidor de arquivos
+
+**OBS1**: O Samba 4 já deve estar instalado para que os demais passos abaixo possam ser seguidos.
+
+**OBS2**: Após realizar a configuração do servidor, as pemissões podem ser dadas através do MMC de Gerenciamento do Computador através de uma estação de trabalho Windows.
+
+### Passo a passo
+
+1. Para conceder o privilégio ao grupo Admins. Do Domínio, insira:
+
+    ```net rpc rights grant "SEUDOMINIO\Domain Admins" SeDiskOperatorPrivilege -U "SEUDOMINIO\administrator"```
+
+2. Adicione um compartilhamento
+
+    ```sudo mkdir -p /srv/samba/FileServer/```
+    ```chown root:"Domain Admins" /srv/samba/FileServer/```
+    ```chmod 0770 /srv/samba/FileServer/```
+
+3. Adicione o compartilhamento [FileServr] ao seu arquivo smb.conf:
+
+    ```
+    [FileServer]
+        path = /srv/samba/FileServer/
+        read only = no
+    ```
+
+4. Recarregue as configurações do Samba 4
+
+    ```smbcontrol all reload-config```
+
+## Implantação do Samba 4 como servidor de impressão
