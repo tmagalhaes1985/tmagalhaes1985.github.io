@@ -1,3 +1,3 @@
-# [Bind](https://www.isc.org/bind/)
+# Bind
 
 ## Sobre o Bind

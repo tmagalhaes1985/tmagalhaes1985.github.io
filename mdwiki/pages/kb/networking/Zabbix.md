@@ -1,12 +1,12 @@
 # Zabbix
 
-## Sobre o [Zabbix](https://www.zabbix.com/)
+## Sobre o Zabbix
 
 O Zabbix é uma solução de monitoramento e fornece suporte responsivo e confiável para problemas relacionados ao seu ambiente operacional, executando o monitoramento de redes e aplicativos.
 
 O Zabbix é um dos softwares de código aberto de monitoramento mais populares mundo. Ele é escalável, robusto, além de ser fácil de usar e ter custos operacionais extremamente baixos.
 
-## Implantação do Zabbix Appliance em um container
+## Implantação do Zabbix Appliance em containers
 
 O Zabbix Appliance consiste na aplicação + banco de dados numa única solução. Nesta implantação, é considerado já existe um host Docker no ambiente.
 

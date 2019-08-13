@@ -1,4 +1,4 @@
-# [Samba 4](https://www.samba.org/)
+# Samba 4
 
 ## Sobre o Samba 4
 

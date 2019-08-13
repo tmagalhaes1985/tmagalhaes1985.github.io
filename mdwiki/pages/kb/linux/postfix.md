@@ -1,4 +1,4 @@
-# [Postfix](http://www.postfix.org/)
+# Postfix
 
 ## Sobre o Postfix
 

@@ -1,6 +1,6 @@
 # Exchange Server
 
-## Sobre o [Exchange Server](https://docs.microsoft.com/pt-br/exchange/exchange-server)
+## Sobre o Exchange Server
 
 ## Verificar o log de mensagens recebidas por um usuário específico
 

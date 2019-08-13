@@ -1,4 +1,4 @@
-# Sobre
+# Sobre mim
 
 ![](http://placekitten.com/g/400/400)
 Prazer, me chamo Thiago Magalhães, administrador de empresas por formação, engenheiro de sistemas de profissão.

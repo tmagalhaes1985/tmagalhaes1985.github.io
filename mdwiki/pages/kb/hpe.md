@@ -1,6 +1,6 @@
-# HPE
+# Hewlett-Packard Enterprise
 
-## Sobre a [Hewlett-Packard Enterprise](https://www.hpe.com)
+## Sobre a Hewlett-Packard Enterprise
 
 ## Configuração do MultiPath I/O para storages HP 3PAR e EVA no Windows
 

@@ -1,6 +1,6 @@
 # Network Policy Server
 
-## Sobre o [NPS](https://docs.microsoft.com/pt-br/windows-server/networking/technologies/nps/nps-top)
+## Sobre o NPS
 
 ## Exportar e importar a configuração do NPS usando o Windows PowerShell
 

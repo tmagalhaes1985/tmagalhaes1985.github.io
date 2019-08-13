@@ -1,4 +1,4 @@
-# [Sed](http://sed.sourceforge.net/)
+# Sed
 
 ## Sobre o Sed
 
