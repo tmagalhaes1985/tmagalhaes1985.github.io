@@ -38,7 +38,7 @@ O Samba como DC suporta:
 
 2. Instale os pré-requisitos
 
-    ```
+    ```bash
     yum -y install attr bind-utils docbook-style-xsl gcc gdb krb5-workstation \
         libsemanage-python libxslt perl perl-ExtUtils-MakeMaker \
         perl-Parse-Yapp perl-Test-Base pkgconfig policycoreutils-python \
@@ -60,7 +60,7 @@ O Samba como DC suporta:
 
 5. Configure o arquivo /etc/resolv.conf
 
-    ```
+    ```bash
     search seudominio.corp # substituir pelo nome DNS do seu dominio
     nameserver 192.168.0.10 # substituir pelo IP do seu servidor Samba 4 AD
     ```
@@ -81,7 +81,7 @@ O Samba como DC suporta:
 
     ```yum -y install chrony```
 
-    ```
+    ```bash
     echo "keyfile /etc/chrony/chrony.keys
     driftfile /var/lib/chrony/chrony.drift
     logdir /var/log/chrony
@@ -142,7 +142,7 @@ Em um membro do domínio Samba, você pode:
 - Configure os serviços de impressão para atuar como um servidor de impressão.
 - Configure o PAM para permitir que os usuários do domínio façam logon localmente ou se autentiquem nos serviços locais instalados.
 
-### Passo a passo
+Para configurar, siga o seguinte fluxo:
 
 1. Configure o /etc/resolv.conf
 2. Valide a resolução de nomes
@@ -157,25 +157,25 @@ Em um membro do domínio Samba, você pode:
 
 ## Implantação do Samba 4 como servidor de arquivos
 
-**OBS1**: O Samba 4 já deve estar instalado para que os demais passos abaixo possam ser seguidos.
+**OBS1**: O Samba 4 já deve estar instalado e o servidor já deve estar adicionado ao domínio para que os demais passos abaixo possam ser seguidos.
 
 **OBS2**: Após realizar a configuração do servidor, as pemissões podem ser dadas através do MMC de Gerenciamento do Computador através de uma estação de trabalho Windows.
 
-### Passo a passo
+Para configurar, siga o seguinte fluxo:
 
 1. Para conceder o privilégio ao grupo Admins. Do Domínio, insira:
 
     ```net rpc rights grant "SEUDOMINIO\Domain Admins" SeDiskOperatorPrivilege -U "SEUDOMINIO\administrator"```
 
-2. Adicione um compartilhamento
+2. Crie o diretório raíz para seu File Server:
 
     ```sudo mkdir -p /srv/samba/FileServer/```
     ```chown root:"Domain Admins" /srv/samba/FileServer/```
     ```chmod 0770 /srv/samba/FileServer/```
 
-3. Adicione o compartilhamento [FileServr] ao seu arquivo smb.conf:
+3. Adicione o compartilhamento [FileServer] ao seu arquivo smb.conf:
 
-    ```
+    ```bash
     [FileServer]
         path = /srv/samba/FileServer/
         read only = no
@@ -187,15 +187,17 @@ Em um membro do domínio Samba, você pode:
 
 ## Implantação do Samba 4 como servidor de impressão
 
-**OBS1**: O Samba 4 já deve estar instalado para que os demais passos abaixo possam ser seguidos.
+**OBS1**: O Samba 4 já deve estar instalado e o servidor já deve estar adicionado ao domínio para que os demais passos abaixo possam ser seguidos.
 
 **OBS2**: Após realizar a configuração do servidor, as pemissões podem ser dadas através do MMC de Gerenciamento de Impressoras através de uma estação de trabalho Windows.
+
+Para configurar, siga o seguinte fluxo:
 
 1. Instale o CUPS
 
     ```yum -y install cups```
 
-2. Crie os diretórios necessários
+2. Crie os diretórios necessários para o funcionamento do CUPS:
 
     ```mkdir -p /var/spool/samba/```
 
@@ -204,31 +206,31 @@ Em um membro do domínio Samba, você pode:
     ```mkdir -p /srv/samba/printer_drivers/```
 
     ```chgrp -R "SAMDOM\Domain Admins" /srv/samba/printer_drivers/```
-    
+
     ```chmod -R 2775 /srv/samba/printer_drivers/```
 
     ```chmod 755 /usr/local/bin/Pdfprint.sh```
 
-1. Habilite o serviço ```spoolssd``` editando a sessão [global] no arquivo smb.conf:
+3. Habilite o serviço ```spoolssd``` editando a sessão [global] no arquivo smb.conf:
 
-    ```
+    ```bash
     rpc_server:spoolss = external
     rpc_daemon:spoolssd = fork
     spoolss: architecture = Windows x64
     printing = CUPS
     ```
 
-2. Edite a sessão [printers] no seu arquivo smb.conf:
+4. Edite a sessão [printers] no seu arquivo smb.conf:
 
-    ```
+    ```bash
     [printers]
         path = /var/spool/samba/
         printable = yes
     ```
 
-3. Edite a sessão [PDFprinter] no seu arquivo smb.conf
+5. Edite a sessão [PDFprinter] no seu arquivo smb.conf
 
-    ```
+    ```bash
     [PDFprinter]
             comment = Samba Virtual PDF Printer
             path = /var/spool/samba
@@ -238,20 +240,20 @@ Em um membro do domínio Samba, você pode:
             print command = /usr/local/bin/Pdfprint.sh -s /var/spool/samba/%s -d /home/%U -o %U -m 600
     ```
 
-4. Edite a sessão [print$] no seu arquivo smb.conf
+6. Edite a sessão [print$] no seu arquivo smb.conf
 
-    ```
+    ```bash
     [print$]
         path = /srv/samba/printer_drivers/
         read only = no
     ```
 
-5. Para conceder o privilégio ao grupo Admins. Do Domínio, insira:
-   
+7. Para conceder o privilégio ao grupo Admins. Do Domínio, insira:
+
    ```net rpc rights grant "SEUDOMINIO\Domain Admins" SePrintOperatorPrivilege -U "SEUDOMINIO\administrator"```
 
-6. Recarregue as configurações do Samba 4
+8. Recarregue as configurações do Samba 4
 
     ```smbcontrol all reload-config```
 
-**OBS**: Para adicionar novas impressoras, abra a interface web do CUPS pelo seu navegador. Exemplo: https://SambaPrintSrv:631/admin
+**OBS**: Para adicionar novas impressoras, abra a interface web do CUPS pelo seu navegador. Exemplo: <https://SambaPrintSrv:631/admin>
