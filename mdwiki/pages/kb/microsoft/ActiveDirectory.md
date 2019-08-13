@@ -10,17 +10,21 @@ Nascido com o Windows 2000 Server, o AD armazena objetos como usuários, grupos,
 
 Além de armazenar estes objetos em seu banco de dados, o AD disponibiliza também serviços, como: autenticação dos usuários, replicação do seu banco de dados, pesquisa dos objetos disponíveis na rede, administração centralizada da segurança utilizando GPO, entre outros serviços. Esses recursos tornam a administração de uma rede bem mais fácil, sendo possível administrar todos os recursos disponíveis de maneira centralizada.
 
-## Remover todos os grupos de um usuário
+## Habilitar uma conta do usuário
 
-```Get-ADUser <userName> -Properties MemberOf | Select -Expand MemberOf | %{Remove-ADGroupMember $_ -member <userName>}```
+```Enable-ADAccount -Identity <userName>```
 
-## Desabilitar a conta do usuário
+## Desabilitar uma conta do usuário
 
 ```Disable-ADAccount -Identity <userName>```
 
-## Mover a conta de usuário desabilitada para outra OU
+## Mover uma conta de usuário desabilitada para outra OU
 
 ```Move-ADObject -Identity <userDn> -TargetPath "OU=DisabledUsers,DC=CONTOSO,DC=local"```
+
+## Remover todos os grupos do domínio de um usuário
+
+```Get-ADUser <userName> -Properties MemberOf | Select -Expand MemberOf | %{Remove-ADGroupMember $_ -member <userName>}```
 
 ## Migração das funções de Mestres de Operações
 

@@ -25,4 +25,4 @@ Microsoft SQL Server 2008 R2  | 100
 Microsoft SQL Server 2008     | 100
 Microsoft SQL Server 2005     | 90
 
-Após executar o ```mofcomp```, reinicie o serviço ```Windows Management Instrumentation``` para que a alteração tenha efeito.
+**OBS**: Após executar o ```mofcomp```, reinicie o serviço ```Windows Management Instrumentation``` para que a alteração tenha efeito.

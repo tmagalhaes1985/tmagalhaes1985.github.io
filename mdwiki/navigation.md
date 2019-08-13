@@ -11,7 +11,8 @@
   * [HAProxy](pages/kb/linux/HAProxy.md)
   * [NFS](pages/kb/linux/NFS.md)
   * [Postfix](pages/kb/linux/Postfix.md)
-  * [Samba 4](pages/kb/linux/Samba4.md)
+  * [Samba 4 Domain Controller](pages/kb/linux/samba4/Samba4DomainController.md)
+  * [Samba 4 Domain Member](pages/kb/linux/samba4/Samba4DomainMember.md)
   * [Sed](pages/kb/linux/Sed.md)
   - - - -
   * # Microsoft
@@ -27,7 +28,7 @@
   * [Skype For Business](pages/kb/microsoft/SkypeForBusiness.md)
   * [SQL Server](pages/kb/microsoft/SQLServer.md)
   - - - -
-  * # Networking
+  * # Redes
   * [Hardening](pages/kb/networking/Hardening.md)
   * [IPv6](pages/kb/networking/IPv6.md)
   * [Sistemas Autônomos](pages/kb/networking/BestPracticesAS.md)

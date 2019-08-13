@@ -2,56 +2,31 @@
 
 ## Sobre o PowerShell
 
-## Último usuário que logou em um servidor ou estação de trabalho
+## Exibir o último usuário que logou em um servidor ou estação de trabalho
 
 ```(Get-WmiObject -Class win32_process -ComputerName $computer | Where-Object name -Match explorer).getowner().user```
 
 ## Converter certificados .PFX para .DER
 
-```
-Get-PfxCertificate -FilePath C:\TEMP\Wildcard.pfx | Export-Certificate -FilePath C:\TEMP\Wildcard.der -Type CERT
-```
+```Get-PfxCertificate -FilePath C:\TEMP\Wildcard.pfx | Export-Certificate -FilePath C:\TEMP\Wildcard.der -Type CERT```
 
 ## Conectar em um computador remotamente via PowerShell
 
-```
-Enter-PSSession -ComputerName <Hostname ou IP>
-```
+```Enter-PSSession -ComputerName <Hostname ou IP>```
 
-## (Re)configuração do repositório PSGallery
+## Reconfigurar o repositório PSGallery
 
-1. Registre-o como repositório padrão
+```Register-PSRepository -Default```
 
-    ```
-    Register-PSRepository -Default
-    ```
+```Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -PackageManagementProvider NuGet```
 
-2. Altere a política de instalação e o gerenciador de pacotes para permitir o download dos módulos via NuGet
+```Install-Module -Name NuGet, ChocolateyGet```
 
-    ```
-    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -PackageManagementProvider NuGet
-    ```
+## Instalar dos cmdlets do PowerShell para gerenciamento da Nuvem Microsoft
 
-3. Instale o gerenciador de pacotes NuGet (o gerenciador de pacotes Chocolatey é opcional)
+```Install-Module -Name Azure, AzureAD, AzureRM -AllowClobber -Force```
 
-    ```
-    Install-Module -Name NuGet
-    ```
-
-4. (Opcional): Instale o gerenciador de pacotes Chocolatey
-
-    ```
-    Install-Module -Name ChocolateyGet
-    ```
-
-## Instalação dos cmdlets do PowerShell para gerenciamento do Azure
-
-```
-Install-Module -Name Azure -AllowClobber -Force
-Install-Module -Name AzureAD, AzureRM -AllowClobber -Force
-```
-
-## Cheat Sheet PowerShell para administradores Linux
+## PowerShell para administradores Linux
 
 Shell                      | PowerShell
 ---------------------------|----------------------
@@ -78,3 +53,5 @@ vi vim or gedit            | notepad
 O comando ```top``` do Linux é o ponto fora da curva, pois não há nenhuma equivalência direta a ele. Para ter o mesmo tipo de saída em PowerShell, execute o comando a seguir:
 
 ```While(1) {ps | sort -des cpu | select -f 15 | ft -a; sleep 2; cls}```
+
+**OBS**: É possível criar um alias para o comando, da mesma maneira que é comumente feito no Linux.
