@@ -27,8 +27,11 @@
   * [Skype For Business](pages/kb/microsoft/SkypeForBusiness.md)
   * [SQL Server](pages/kb/microsoft/SQLServer.md)
   - - - -
-  * # Monitoramento
-  * [Zabbix](pages/kb/Zabbix.md)
+  * # Networking
+  * [Hardening](pages/kb/networking/Hardening.md)
+  * [IPv6](pages/kb/networking/IPv6.md)
+  * [Sistemas Autônomos](pages/kb/networking/BestPracticesAS.md)
+  * [Zabbix](pages/kb/networking/Zabbix.md)
 
 [Sobre](pages/About.md)
 - - - -
