@@ -6,9 +6,7 @@
 
 Para solucionar este problema, basta executar o comando a seguir no servidor que apresentou a mensagem de erro:
 
-```
-mofcomp "%programfiles(x86)%\Microsoft SQL Server\<SQL Server number>\Shared\sqlmgmproviderxpsp2up.mof"
-```
+```mofcomp "%programfiles(x86)%\Microsoft SQL Server\<SQL Server number>\Shared\sqlmgmproviderxpsp2up.mof"```
 
 Para este comando ser executado corretamente, é necessário que o arquivo ```Sqlmgmproviderxpsp2up.mof``` esteja presente no diretório ```%programfiles(x86)%\Microsoft SQL Server\<SQL Server number>\Shared```.
 

@@ -53,5 +53,3 @@ vi vim or gedit            | notepad
 O comando ```top``` do Linux é o ponto fora da curva, pois não há nenhuma equivalência direta a ele. Para ter o mesmo tipo de saída em PowerShell, execute o comando a seguir:
 
 ```While(1) {ps | sort -des cpu | select -f 15 | ft -a; sleep 2; cls}```
-
-**OBS**: É possível criar um alias para o comando, da mesma maneira que é comumente feito no Linux.
