@@ -22,6 +22,10 @@ Além de armazenar estes objetos em seu banco de dados, o AD disponibiliza tamb�
 
 ```Move-ADObject -Identity <userDn> -TargetPath "OU=DisabledUsers,DC=CONTOSO,DC=local"```
 
+## Listar todos os usuários pertencentes a um grupo do domínio
+
+```Get-ADGroupMember -Identity <securityGroup> | ft name,SamAccountName -AutoSize | clip```
+
 ## Remover todos os grupos do domínio de um usuário
 
 ```Get-ADUser <userName> -Properties MemberOf | Select -Expand MemberOf | %{Remove-ADGroupMember $_ -member <userName>}```
