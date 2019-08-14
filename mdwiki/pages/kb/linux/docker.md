@@ -74,9 +74,7 @@ O Manager é a única máquina que pode executar comandos ou autorizar outras m�
 
     ```docker swarm join-token worker```
 
-2. Copie a saída do comando e execute em um Worker. A saída será algo parecido com
-
-     ```docker swarm join --token SWMTKN-1-5tl7yaasdfd9qt9j0easdfnml4lqbosbasf14p13-f3hem9ckmkhasdf3idrzk5gz 192.168.0.100:2377```
+2. Copie a saída do comando e execute em um Worker para adicioná-lo ao cluster Swarm
 
 ## Docker Stacks
 
