@@ -13,13 +13,17 @@ Em um membro do domínio Samba, você pode:
 
 ## Instalação do Samba 4 como membro do domínio
 
-1. Configure o /etc/resolv.conf
-2. Valide a resolução de nomes
-3. Configure a sincronização de tempo
-4. Instale o Samba 4
-5. Adicione o servidor ao domínio
+1. Instale o Samba 4
 
-    ```net ads join -U administrator```
+    ```yum install realmd oddjob-mkhomedir oddjob samba-winbind-clients samba-winbind samba-common-tools samba samba-winbind-krb5-locator```
+
+2. Configure o /etc/resolv.conf
+3. Valide a resolução de nomes
+4. Configure a sincronização de tempo
+5. Instale o Samba 4
+6. Adicione o servidor ao domínio
+
+    ```realm join --client-software=winbind Samba4AD1.seudominio.corp```
 
 ## Configurar um servidor de arquivos
 
@@ -41,7 +45,7 @@ Após realizar a configuração do servidor, as pemissões podem ser dadas atrav
 
 3. Adicione o compartilhamento [FileServer] ao seu arquivo ```smb.conf```
 
-    ```bash
+    ```
     [FileServer]
         path = /srv/samba/FileServer/
         read only = no
@@ -81,7 +85,7 @@ Após realizar a configuração do servidor, as pemissões podem ser dadas atrav
 
 4. Habilite o serviço ```spoolssd``` editando a sessão [global] no arquivo ```smb.conf```
 
-    ```bash
+    ```
     rpc_server:spoolss = external
     rpc_daemon:spoolssd = fork
     spoolss: architecture = Windows x64
@@ -90,7 +94,7 @@ Após realizar a configuração do servidor, as pemissões podem ser dadas atrav
 
 5. Edite a sessão [printers] no seu arquivo ```smb.conf```
 
-    ```bash
+    ```
     [printers]
         path = /var/spool/samba/
         printable = yes
