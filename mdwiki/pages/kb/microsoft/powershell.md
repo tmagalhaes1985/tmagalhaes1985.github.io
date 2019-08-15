@@ -26,6 +26,16 @@
 
 ```Install-Module -Name Azure, AzureAD, AzureRM -AllowClobber -Force```
 
+## Trace de rede via netsh
+
+1. Em um prompt elevado executar
+
+    ```netsh trace start persistent=yes capture=yes maxsize=512 traceFile=c:\%COMPUTERNAME%_Repro_trace.etl```
+
+2. Quando ocorrer o problema, para o trace com o comando
+
+    ```netsh trace stop```
+
 ## PowerShell para administradores Linux
 
 Shell                      | PowerShell
