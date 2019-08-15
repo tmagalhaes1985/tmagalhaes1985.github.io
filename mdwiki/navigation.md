@@ -1,4 +1,4 @@
-# tmagalhaes1985 wiki
+# Coisas genéricas de infraestrutura
 
 [gimmick:theme](cosmo)
 
