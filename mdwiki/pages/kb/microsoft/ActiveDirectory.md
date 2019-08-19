@@ -30,6 +30,10 @@ Além de armazenar estes objetos em seu banco de dados, o AD disponibiliza tamb�
 
 ```Get-ADUser <userName> -Properties MemberOf | Select -Expand MemberOf | %{Remove-ADGroupMember $_ -member <userName>}```
 
+## Verificar a última alteração de senha
+
+```Get-ADuser -Filter * -Properties passwordlastset, passwordneverexpires | sort Name | ft Name, passwordlastset, passwordneverexpires```
+
 ## Migração das funções de Mestres de Operações
 
 ### PDC Emulator

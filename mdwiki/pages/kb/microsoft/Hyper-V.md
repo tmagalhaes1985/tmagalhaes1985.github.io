@@ -26,3 +26,11 @@ Windows Server 2012 R2 Datacenter        |   slmgr /ipk Y4TGP-NPTV9-HTC2H-7MGQ3-
 Windows Server 2012 R2 Standard          |   slmgr /ipk DBGBW-NPF86-BJVTX-K3WKJ-MTB6V
 
 **OBS**: Para validar chave do Windows Server imediatamente, execute o comando ```slmgr /ato```.
+
+## Remover IP's travados no VMM
+
+```
+$IPAddressPool = Get-SCStaticIPAddressPool -IPv4 -Subnet "192.168.50.0/24"
+$IPAddress = Get-SCIPAddress -StaticIPAddressPool $IPAddressPool
+ForEach ($ip in $IPAddress) {Revoke-SCIPAddress -AllocatedIPAddress $ip}
+```

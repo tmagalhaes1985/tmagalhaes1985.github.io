@@ -1,4 +1,4 @@
-# Coisas genéricas de infraestrutura
+# Coisas da Infra
 
 [gimmick:theme](cosmo)
 
