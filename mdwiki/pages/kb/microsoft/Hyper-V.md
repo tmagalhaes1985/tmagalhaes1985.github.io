@@ -29,8 +29,6 @@ Windows Server 2012 R2 Standard          |   slmgr /ipk DBGBW-NPF86-BJVTX-K3WKJ-
 
 ## Remover IP's travados no VMM
 
-```
-$IPAddressPool = Get-SCStaticIPAddressPool -IPv4 -Subnet "192.168.50.0/24"
-$IPAddress = Get-SCIPAddress -StaticIPAddressPool $IPAddressPool
-ForEach ($ip in $IPAddress) {Revoke-SCIPAddress -AllocatedIPAddress $ip}
-```
+```$IPAddressPool = Get-SCStaticIPAddressPool -IPv4 -Subnet "10.0.0.0/8"```
+```$IPAddress = Get-SCIPAddress -StaticIPAddressPool $IPAddressPool```
+```ForEach ($ip in $IPAddress) {Revoke-SCIPAddress -AllocatedIPAddress $ip}```

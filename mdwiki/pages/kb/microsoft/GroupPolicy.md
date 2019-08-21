@@ -15,3 +15,7 @@ Abra um prompt de comando e execute os seguintes comandos na sequência:
 ## Resetar a Default Domain Policy para o padrão
 
 ```dcgpofix /ignoreschema /target:Domain```
+
+## Remote Troubleshooting
+
+<https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_remote_troubleshooting?view=powershell-6>

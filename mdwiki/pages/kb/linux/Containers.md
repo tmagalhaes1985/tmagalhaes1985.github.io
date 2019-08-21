@@ -1,19 +1,8 @@
-# Docker
+# Containers
 
-## Sobre o Docker
+## Docker
 
-O Docker é uma plataforma para Desenvolvedores e SysAdmins rodarem containers.
-
-Containers são:
-
-- **Flexíveis**: Até aplicativos complexos podem rodar em containers
-- **Leves**: Aproveitam e compartilham o kernel do host Docker
-- **Intercambiáveis**: Você pode implantar atualizações e on-the-fly
-- **Portáveis**: Você pode rodar localmente, na nuvem ou em qualquer lugar
-- **Escaláveis**: Você pode aumentar e distribuir automaticamente as réplicas dos containers de acordo com a demanda dos seus usuários
-- **Empilháveis**: Você pode empilhar serviços verticalmente on-the-fly
-
-## Instalação do Docker
+O Docker é uma runtime de containers, uma alternativa leve a máquinas virtuais, altamente portáveis e de fácil deploy e reprodução em escala.
 
 1. Instale os pré-requisitos
 
@@ -25,52 +14,56 @@ Containers são:
 
     ```sudo sh get-docker.sh```
 
-    **OBS**: Para executar o Docker como usuário comum (sem privilégios root), adicione seu usuário ao grupo "docker"
+3. Para executar o Docker como usuário comum (sem privilégios root), adicione seu usuário ao grupo "docker"
 
     ```sudo usermod -aG docker $USER```
 
-3. Configure o Docker para inializar automaticamente com o sistema
+4. Configure o Docker para inicializar automaticamente com o sistema
 
-    ```sudo systemctl enable docker```
+    ```sudo systemctl enable docker && sudo systemctl start docker```
 
-4. Inicie o serviço do Docker
+## Podman
 
-    ```sudo systemctl start docker```
+O Podman é uma runtime de containers sem daemon. Você pode usar o Podman como substituto ao Docker.
+
+1. Para instalar o Podman
+
+    ```sudo yum -y install podman```
+
+2. Se você já for acostumado com a sintaxe do Docker, adicione um alias para o Podman
+
+    ```alias docker=podman```
 
 ## Docker Compose
 
-O Docker Compose serve para executar apps com vários contêineres em múltiplos hosts Docker. Ele funciona pra todos os tipos de ambiente: produção, staging, desenvolvimento, teste, bem como para fluxos de integração contínua.
+O Docker Compose executa apps de vários contêineres em um ou mais hosts Docker. Ele funciona pra todos os tipos de ambiente: produção, staging, desenvolvimento, teste, bem como para fluxos de integração contínua.
 
-Seu uso se dá em três etapas:
+1. Para instalar o Docker Compose
 
-1. Defina o ambiente do seu aplicativo com um Dockerfile para que ele possa ser reproduzido em qualquer lugar
-2. Defina os serviços que compõem seu aplicativo num arquivo docker-compose.yml para que eles possam ser executados juntos em um ambiente isolado
-3. Execute o docker-compose e seu aplicativo será completamente iniciado.
+    ```sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose```
 
-## Instalando o Docker Compose
+2. Dê permissão de execução ao binário do Docker Compose
 
-```sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose```
-
-```sudo chmod +x /usr/local/bin/docker-compose```
+    ```sudo chmod +x /usr/local/bin/docker-compose```
 
 ## Clusters Swarm
 
-Um cluster Swarm é um grupo de máquinas que executam o Docker em conjunto. Os hosts Docker membros de um Swarm podem ser físicos ou virtuais. Depois de adicionados ao cluster Swarm, os hosts Docker são chamados de nós.
+Swarms são hosts que executam o Docker em conjunto. Depois de adicionados um cluster Swarm, os hosts Docker são denominados nós.
 
-O Manager (nó responsável pelo gerenciamento do cluster) utiliza estratégias para execução dos containers. Você instrui o Manager sobre como usar essas estratégias no arquivo Compose da sua aplicação:
+O nó responsável pelo gerenciamento do cluster é denominado Manager, e é o único host que executa comandos no cluster, bem como autorizar outros nós a se juntarem ao cluster. Você instrui o Manager sobre como distribuir containers no arquivo Compose das suas aplicações:
 
 - **emptiest node**: preenche as máquinas menos utilizadas com containers
 - **global**: garante que cada nó do cluster obtenha exatamente uma instância do container especificado
 
-O Manager é a única máquina que pode executar comandos ou autorizar outras máquinas a se juntarem ao cluster como Workers. Os Workers fornecem apenas capacidade de execução de containers, e não têm autoridade no cluster para dizer a qualquer outro nó o que pode ou não ser feito.
-
 1. Para criar um Manager para seu cluster
 
-    ```docker swarm init```.
+    ```docker swarm init```
 
-## Adicionando nós ao cluster Swarm
+## Adicionando Workers ao cluster Swarm
 
-1. Para adicionar nós a um cluster Swarm, execute no Manager
+Workers fornecem capacidade de execução de containers, e não têm autoridade no cluster para executarem ações administrativas.
+
+1. Para adicionar um Worker a um cluster Swarm, execute o seguinte comando no Manager
 
     ```docker swarm join-token worker```
 
@@ -78,8 +71,8 @@ O Manager é a única máquina que pode executar comandos ou autorizar outras m�
 
 ## Docker Stacks
 
-Docker             | Easy Tech Stack        | Self-Hosted Tech Stack
--------------------|------------------------|--------------------------
+Docker             | Easy Stack             | Self-Hosted Stack
+-------------------|------------------------|------------------
 Swarm GUI          | Portainer              | Portainer
 Central Monitoring | Librato, Sysdig        | Prometheus + Grafana
 Central Logging    | Docker for AWS/Azure   | ELK
@@ -95,16 +88,16 @@ HW/OS              | Docker for AWS/Azure   | InfraKit, Terraform
 ## Comparação dos paths em sistemas Linux e Windows
 
 Diretórios importantes      |  Linux             | Windows
-----------------------------|--------------------|---------------------------------------
+----------------------------|--------------------|--------
 binário do cliente          |  /usr/bin/docker   |  C:\Program Files\Docker\docker.exe
 binário do daemon           |  /usr/bin/dockerd  |  C:\Program Files\Docker\dockerd.exe
 configuração do servidor    |  /etc/docker       |  C:\ProgramData\docker\config
 diretório de instalação     |  /var/lib/docker   |  C:\ProgramData\docker
 arquivo hosts               |  /etc/hosts        |  C:\Windows\System32\drivers\etc\hosts
 
-## When to use Buildah and when to use Podman
+## Quando usar o Buildah quando usar o Podman
 
-Command             | Podman Behavior               | Buildah Behavior
+Comando             | Comportamento do Podman       | Comportamento do Buildah
 --------------------|-------------------------------|-----------------
 build               | Calls buildah bud             | Provides the build-using-dockerfile (bud) command that emulates Docker’s build command.
 commit              | Commits a Podman container into a container image. Does not work on a Buildah container. Once committed the resulting image can be used by either Podman or Buildah.  | Commits a Buildah container into a container image. Does not work on a Podman container. Once committed, the resulting image can be used by either Buildah or Podman.

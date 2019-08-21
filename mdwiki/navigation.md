@@ -7,7 +7,7 @@
   * # Linux
   * [Apache](pages/kb/linux/Apache.md)
   * [Bind](pages/kb/linux/Bind.md)
-  * [Docker](pages/kb/linux/Docker.md)
+  * [Containers](pages/kb/linux/Containers.md)
   * [HAProxy](pages/kb/linux/HAProxy.md)
   * [NFS](pages/kb/linux/NFS.md)
   * [Postfix](pages/kb/linux/Postfix.md)
@@ -27,7 +27,7 @@
   * [PowerShell](pages/kb/microsoft/PowerShell.md)
   * [Skype For Business](pages/kb/microsoft/SkypeForBusiness.md)
   * [SQL Server](pages/kb/microsoft/SQLServer.md)
-  * [WinRM](pages/kb/microsoft/WinRM.md)
+  * [WinRM](pages/kb/microsoft/winrm/WinRM.md)
   - - - -
   * # Redes
   * [Hardening](pages/kb/networking/Hardening.md)

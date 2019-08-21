@@ -1,8 +1,6 @@
 # SQL Server
 
-## Sobre o SQL Server
-
-## Error message when you open SQL Server Configuration Manager in SQL Server: "Cannot connect to WMI provider. You do not have permission or the server is unreachable"
+## FIX - Error message when you open SQL Server Configuration Manager in SQL Server: "Cannot connect to WMI provider. You do not have permission or the server is unreachable"
 
 Para solucionar este problema, basta executar o comando a seguir no servidor que apresentou a mensagem de erro:
 
