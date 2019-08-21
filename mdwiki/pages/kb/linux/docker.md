@@ -101,3 +101,16 @@ binário do daemon           |  /usr/bin/dockerd  |  C:\Program Files\Docker\doc
 configuração do servidor    |  /etc/docker       |  C:\ProgramData\docker\config
 diretório de instalação     |  /var/lib/docker   |  C:\ProgramData\docker
 arquivo hosts               |  /etc/hosts        |  C:\Windows\System32\drivers\etc\hosts
+
+## When to use Buildah and when to use Podman
+
+Command             | Podman Behavior               | Buildah Behavior
+--------------------|-------------------------------|-----------------
+build               | Calls buildah bud             | Provides the build-using-dockerfile (bud) command that emulates Docker’s build command.
+commit              | Commits a Podman container into a container image. Does not work on a Buildah container. Once committed the resulting image can be used by either Podman or Buildah.  | Commits a Buildah container into a container image. Does not work on a Podman container. Once committed, the resulting image can be used by either Buildah or Podman.
+mount               | Mounts a Podman container. Does not work on a Buildah container.      | Mounts a Buildah container. Does not work on a Podman container.
+pull and push       | Pull or push an image from a container image registry. Functionally the same as Buildah.  | Pull or push an image from a container image registry. Functionally the same as Podman.
+run                 | Run a process in a new container in the same manner as docker run.    | Runs the container in the same way as the RUN command in a Dockerfile.
+rm                  | Removes a Podman container. Does not work on a Buildah container.     | Removes a Buildah container. Does not work on a Podman container.
+rmi, images, tag    | Equivalent on both projects.                                          | Equivalent on both projects.
+containers and ps   | ps is used to list Podman containers. The containers command does not exist.  | containers is used to list Buildah containers. The ps command does not exist.

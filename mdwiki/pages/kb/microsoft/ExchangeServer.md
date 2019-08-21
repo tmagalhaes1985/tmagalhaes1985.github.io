@@ -2,6 +2,11 @@
 
 ## Sobre o Exchange Server
 
+## Importar módulo do Exchange
+
+1. Instalar o Exchange Management Shell através da mídia do Exchange
+2. ```Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn```
+
 ## Verificar histórico de mensagens recebidas em uma caixa de correio
 
 ```Get-TransportService | Get-MessageTrackingLog -ResultSize Unlimited -Start "06/30/2008 23:59:00" -End "07/30/2019 17:00:00" -Recipients <email> | Select-Object | ft timestamp,eventid,source,messagesubject```

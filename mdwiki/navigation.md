@@ -27,6 +27,7 @@
   * [PowerShell](pages/kb/microsoft/PowerShell.md)
   * [Skype For Business](pages/kb/microsoft/SkypeForBusiness.md)
   * [SQL Server](pages/kb/microsoft/SQLServer.md)
+  * [WinRM](pages/kb/microsoft/WinRM.md)
   - - - -
   * # Redes
   * [Hardening](pages/kb/networking/Hardening.md)
