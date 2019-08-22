@@ -14,6 +14,7 @@
   * [Samba 4 Domain Controller](pages/kb/linux/samba4/Samba4DomainController.md)
   * [Samba 4 Domain Member](pages/kb/linux/samba4/Samba4DomainMember.md)
   * [Sed](pages/kb/linux/Sed.md)
+  * [Gerenciamento de armazenamento](pages/kb/linux/StorMgmt.md)
   - - - -
   * # Microsoft
   * [Active Directory](pages/kb/microsoft/ActiveDirectory.md)
