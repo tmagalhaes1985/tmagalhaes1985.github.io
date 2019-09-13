@@ -16,7 +16,8 @@
   * [Samba4](linux/samba4/samba4_domaincontroller.md)
   - - - -
   * [Active Directory](microsoft/adds.md)
-  * [Certificate Services](adcs/adcs.md)
+  * [Certificate Services](microsoft/adcs/adcs.md)
+  * [DNSSec](microsoft/dnssec/DNSSEC_signing_a_zone_with_Windows_Server_2012.md)
   * [Exchange](microsoft/msexchange.md)
   * [GPO](microsoft/gpo.md)
   * [Hyper-V](microsoft/hyperv.md)
