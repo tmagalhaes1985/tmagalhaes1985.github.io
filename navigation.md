@@ -1,4 +1,4 @@
-# Coisas da Infra
+# Thiago Magalhães CloudWiki
 
 [gimmick:theme](cosmo)
 
