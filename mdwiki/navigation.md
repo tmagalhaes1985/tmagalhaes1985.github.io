@@ -5,8 +5,6 @@
 [Wiki]()
 
   * # Linux
-  * [Apache](pages/kb/linux/Apache.md)
-  * [Bind](pages/kb/linux/Bind.md)
   * [Containers](pages/kb/linux/Containers.md)
   * [HAProxy](pages/kb/linux/HAProxy.md)
   * [NFS](pages/kb/linux/NFS.md)
@@ -15,6 +13,7 @@
   * [Samba 4 Domain Member](pages/kb/linux/samba4/Samba4DomainMember.md)
   * [Sed](pages/kb/linux/Sed.md)
   * [Gerenciamento de armazenamento](pages/kb/linux/StorMgmt.md)
+  * [OpenLDAP Server](OpenLDAP/OpenLDAP_server.md)
   - - - -
   * # Microsoft
   * [Active Directory](pages/kb/microsoft/ActiveDirectory.md)
@@ -30,11 +29,11 @@
   * [SQL Server](pages/kb/microsoft/SQLServer.md)
   * [WinRM](pages/kb/microsoft/winrm/WinRM.md)
   - - - -
-  * # Redes
-  * [Hardening](pages/kb/networking/Hardening.md)
-  * [IPv6](pages/kb/networking/IPv6.md)
-  * [Sistemas Autônomos](pages/kb/networking/BestPracticesAS.md)
-  * [Zabbix](pages/kb/networking/Zabbix.md)
+  * # Monitoramento
+  * [Cacti](Cacti/Cacti.md)
+  - - - -
+  * # Segurança
+  * [LGPD](LGPD/LGPD.md)
 
 [Sobre](pages/About.md)
 - - - -
