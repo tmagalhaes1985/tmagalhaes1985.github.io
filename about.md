@@ -1,4 +1,6 @@
-# Quem sou eu
+# Sobre
+
+## Quem é esse Pokémon?
 
 ![Place Kitten 800 x 200](http://placekitten.com/g/800/200)
 
