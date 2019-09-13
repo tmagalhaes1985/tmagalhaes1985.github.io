@@ -12,7 +12,7 @@ Como o HAProxy não anuncia a si mesmo, só sabemos que ele está em uso quando 
 
 Seu modo de operação torna sua integração em arquiteturas existentes muito fácil e sem riscos, enquanto oferece a possibilidade de não expor servidores frágeis à rede:
 
-![Proxy mode](/mdwiki/pages/kb/linux/haproxy/haproxy-pmode.png)
+![Proxy mode](haproxy-pmode.png)
 
 ## Balanceamento de carga
 
