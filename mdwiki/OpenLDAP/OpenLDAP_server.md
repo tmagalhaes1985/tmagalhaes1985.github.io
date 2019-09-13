@@ -33,7 +33,7 @@ DN               |   Distinguished name
 
 O último atributo (DN) é composto por uma série de outros atributos separados por vírgula, usados para identificar entradas exclusivas na hierarquia de diretórios. O DN é o nome completo da entrada.
 
-A string ```CN=admins,OU=Grupos,DC=meudominio,DC=com``` representa um caminho único dentro da estrutura hierárquica do diretório chamada de Directory Information Tree (DIT), e deve ser lida da direita (raiz) para esquerda (folha).
+A string ```CN=administrators,OU=Grupos,DC=meudominio,DC=com``` representa um caminho único dentro da estrutura hierárquica do diretório chamada de Directory Information Tree (DIT), e deve ser lida da direita (raiz) para esquerda (folha).
 
 ## Definições da instalação
 
@@ -201,13 +201,13 @@ Para adicionar um grupo posix, criaremos um arquivo LDIF para ele:
 dn: cn=teste,ou=Grupos,dc=meudominio,dc=com
 objectClass: posixGroup
 objectClass: top
-cn: admins
+cn: teste
 gidNumber: 501
 
 dn: cn=administrators,ou=Grupos,dc=meudominio,dc=com
 objectClass: posixGroup
 objectClass: top
-cn: admins
+cn: administrators
 gidNumber: 502
 
 dn: cn=users,ou=Grupos,dc=meudominio,dc=com
@@ -327,9 +327,9 @@ objectClass: top
 memberUid: tlarisse
 memberUid: gbraga
 
-dn: cn=admins,ou=Grupos,dc=meudominio,dc=com
+dn: cn=administrators,ou=Grupos,dc=meudominio,dc=com
 gidNumber: 502
-cn: admins
+cn: administrators
 objectClass: posixGroup
 objectClass: top
 memberUid: tmagalhaes
