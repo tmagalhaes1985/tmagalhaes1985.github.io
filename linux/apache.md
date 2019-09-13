@@ -1,28 +1,30 @@
 # Apache
 
-## Instalação e gerenciamento do serviço Web
+## Instalação
 
-### Instalação RHEL/CentOS 7
+### RHEL/CentOS 7
 
 ```sudo yum install httpd httpd-manual```
 
-### Instalação RHEL/CentOS 8
+### RHEL/CentOS 8
 
 ```sudo yum module install httpd```
 
-### Habilitando o serviço na inicialização
+## Gerenciamento do serviço
+
+### Habilitar na inicialização
 
 ```sudo systemctl enable httpd```
 
-### Inicializando o serviço
+### Iniciar
 
 ```sudo systemctl start httpd```
 
-### Interrompendo o serviço
+### Interromper
 
 ```sudo systemctl stop httpd```
 
-### Reiniciando o serviço
+### Reiniciar o serviço
 
 ```sudo systemctl restart httpd```
 
