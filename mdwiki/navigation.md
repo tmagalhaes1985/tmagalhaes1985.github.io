@@ -8,9 +8,8 @@
   * [Armazenamento](pages/kb/linux/StorMgmt.md)
   * [Containers](pages/kb/linux/Containers.md)
   * [Postfix](pages/kb/linux/postfix.md)
+  * [OpenLDAP](OpenLDAP/OpenLDAP_server.md)
   * [Sed](pages/kb/linux/sed.md)
-  * [OpenLDAP server](OpenLDAP/OpenLDAP_server.md)
-  * [OpenLDAP client](OpenLDAP/OpenLDAP_client.md)
   - - - -
   * # Microsoft
   * [Active Directory](pages/kb/microsoft/ActiveDirectory.md)
