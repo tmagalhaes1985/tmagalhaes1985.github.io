@@ -7,11 +7,10 @@
   * # Linux
   * [Armazenamento](pages/kb/linux/StorMgmt.md)
   * [Containers](pages/kb/linux/Containers.md)
-  * [Postfix](pages/kb/linux/Postfix.md)
-  * [Samba 4 Domain Controller](pages/kb/linux/samba4/Samba4DomainController.md)
-  * [Samba 4 Domain Member](pages/kb/linux/samba4/Samba4DomainMember.md)
-  * [Sed](pages/kb/linux/Sed.md)
-  * [OpenLDAP Server](OpenLDAP/OpenLDAP_server.md)
+  * [Postfix](pages/kb/linux/postfix.md)
+  * [Sed](pages/kb/linux/sed.md)
+  * [OpenLDAP server](OpenLDAP/OpenLDAP_server.md)
+  * [OpenLDAP client](OpenLDAP/OpenLDAP_client.md)
   - - - -
   * # Microsoft
   * [Active Directory](pages/kb/microsoft/ActiveDirectory.md)
@@ -19,15 +18,13 @@
   * [Exchange](pages/kb/microsoft/ExchangeServer.md)
   * [GPO](pages/kb/microsoft/GroupPolicy.md)
   * [Hyper-V](pages/kb/microsoft/Hyper-V.md)
-  * [IIS](pages/kb/microsoft/IIS.md)
-  * [NPS](pages/kb/microsoft/NPS.md)
-  * [PowerShell](pages/kb/microsoft/PowerShell.md)
+  * [PowerShell](pages/kb/microsoft/powershell.md)
   * [SQL Server](pages/kb/microsoft/SQLServer.md)
   - - - -
   * # Monitoramento
   * [Cacti](Cacti/Cacti.md)
   - - - -
-  * # Segurança
+  * # Segurança da Informação
   * [LGPD](LGPD/LGPD.md)
 
 [Sobre](pages/about.md)
