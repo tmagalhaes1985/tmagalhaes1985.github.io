@@ -30,6 +30,6 @@
   * # Segurança
   * [LGPD](LGPD/LGPD.md)
 
-[Sobre](pages/About.md)
+[Sobre](pages/about.md)
 - - - -
 [gimmick:themechooser](Selecione um tema)
