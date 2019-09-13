@@ -1,4 +1,4 @@
-# Gerenciamento de armazenamento
+# Gerenciamento de storage
 
 ## Discos MBR
 

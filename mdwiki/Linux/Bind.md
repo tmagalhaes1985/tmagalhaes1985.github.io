@@ -1,3 +1,0 @@
-# Bind
-
-## Sobre o Bind

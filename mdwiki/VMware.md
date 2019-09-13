@@ -1,3 +1,0 @@
-# VMware
-
-## Sobre a VMware

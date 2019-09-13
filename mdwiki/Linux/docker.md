@@ -95,7 +95,7 @@ configuração do servidor    |  /etc/docker       |  C:\ProgramData\docker\conf
 diretório de instalação     |  /var/lib/docker   |  C:\ProgramData\docker
 arquivo hosts               |  /etc/hosts        |  C:\Windows\System32\drivers\etc\hosts
 
-## Quando usar o Buildah quando usar o Podman
+## Quando usar o Buildah e quando usar o Podman
 
 Comando             | Comportamento do Podman       | Comportamento do Buildah
 --------------------|-------------------------------|-----------------

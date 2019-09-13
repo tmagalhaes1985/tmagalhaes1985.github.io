@@ -8,7 +8,7 @@ O Zabbix é um dos softwares de código aberto de monitoramento mais populares m
 
 ## Implantação do Zabbix Appliance em containers
 
-O Zabbix Appliance consiste na aplicação + banco de dados numa única solução. Nesta implantação, é considerado já existe um host Docker no ambiente.
+O Zabbix Appliance consiste na aplicação + banco de dados numa única solução. Nesta implantação, considera-se que já existe um host Docker no ambiente.
 
 ```docker run --name Zabbix-Appliance -d -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance:alpine-trunk```
 

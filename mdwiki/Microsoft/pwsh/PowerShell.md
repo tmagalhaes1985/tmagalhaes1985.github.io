@@ -1,7 +1,5 @@
 # PowerShell
 
-## Sobre o PowerShell
-
 ## Exibir o último usuário que logou em um servidor ou estação de trabalho
 
 ```(Get-WmiObject -Class win32_process -ComputerName $computer | Where-Object name -Match explorer).getowner().user```

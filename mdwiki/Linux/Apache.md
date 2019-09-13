@@ -1,30 +1,28 @@
 # Apache
 
-## Sobre o Apache
+## Instalação e gerenciamento do serviço Web
 
-A Apache Software Foundation é a maior fundação de código aberto do mundo, e integra centenas de projetos.
-
-## Instalação RHEL/CentOS 7
+### Instalação RHEL/CentOS 7
 
 ```sudo yum install httpd httpd-manual```
 
-## Instalação RHEL/CentOS 8
+### Instalação RHEL/CentOS 8
 
 ```sudo yum module install httpd```
 
-## Habilitando o serviço na inicialização
+### Habilitando o serviço na inicialização
 
 ```sudo systemctl enable httpd```
 
-## Inicializando o serviço
+### Inicializando o serviço
 
 ```sudo systemctl start httpd```
 
-## Interrompendo o serviço
+### Interrompendo o serviço
 
 ```sudo systemctl stop httpd```
 
-## Reiniciando o serviço
+### Reiniciando o serviço
 
 ```sudo systemctl restart httpd```
 
@@ -64,9 +62,9 @@ suexec              |   Switch User For Exec
 
 ## Configurando Virtual Hosts
 
-To create a name-based virtual host, copy the example configuration file /usr/share/doc/httpd/httpd-vhosts.conf into the /etc/httpd/conf.d/ directory. 
+Para criar um host virtual baseado em nome, copie o arquivo de configuração de exemplo ```/usr/share/doc/httpd/httpd-vhosts.conf``` no diretório ```/etc/httpd/conf.d/```.
 
-```
+```bash
 <VirtualHost *:80>
     ServerAdmin webmaster@penguin.example.com
     DocumentRoot "/www/docs/penguin.example.com"
@@ -77,7 +75,7 @@ To create a name-based virtual host, copy the example configuration file /usr/sh
 </VirtualHost>
 ```
 
-**Note**: ```ServerName``` must be a valid DNS name assigned to the machine.
+** Nota **: ```ServerName``` deve ser um nome DNS válido atribuído à máquina.
 
 ## Habilitando TLS
 
@@ -89,16 +87,16 @@ To create a name-based virtual host, copy the example configuration file /usr/sh
 
 ## Utilizando uma chave e certificado existentes
 
-If you want to use an existing key and certificate, move the relevant files to the ```/etc/pki/tls/private/``` and ```/etc/pki/tls/certs/``` directories by issuing the following commands as root:
+Se você deseja usar uma chave e um certificado existentes, mova os arquivos relevantes para os diretórios ```/etc/pki/tls/private/``` e ```/etc/pki/tls/certs/``` executando os seguintes comandos como root:
 
 ```mv key_file.key /etc/pki/tls/private/hostname.key```
 
 ```mv certificate.crt /etc/pki/tls/certs/hostname.crt```
 
-Then add the following lines to the ```/etc/httpd/conf.d/ssl.conf``` configuration file:
+Em seguida, adicione as seguintes linhas ao arquivo de configuração ```/etc/httpd/conf.d/ssl.conf```:
 
 ```SSLCertificateFile /etc/pki/tls/certs/hostname.crt```
 
 ```SSLCertificateKeyFile /etc/pki/tls/private/hostname.key```
 
-To load the updated configuration, restart the ```httpd``` service.
+Para carregar a configuração atualizada, reinicie o serviço ```httpd```.
