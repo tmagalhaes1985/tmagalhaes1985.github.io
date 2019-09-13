@@ -79,39 +79,39 @@ Com o OpenLDAP instalado, vamos alterar os padrões fornecidos com o Ubuntu para
 
 A ferramenta de configuração fará uma série de perguntas para reconfigurar o OpenLDAP:
 
-1. ![](/OpenLDAP/img/slapd/slapd1.png)
+1. ![](img/slapd/slapd1.png)
     
     Como o OpenLDAP já foi instalado com o esquema base, omita a configuração selecionando **No**.
 
-2. ![](/OpenLDAP/img/slapd/slapd2.png)
+2. ![](img/slapd/slapd2.png)
 
     Confirme o nome DNS do seu domínio. Esta estrutura será utilizada para criar a árvore de diretório do seu servidor OpenLDAP.
 
-3. ![](/OpenLDAP/img/slapd/slapd3.png)
+3. ![](img/slapd/slapd3.png)
 
     O nome da organização é comumente o mesmo nome DNS do seu domínio. Basta confirmar e seguir com a reconfiguração.
 
-4. ![](/OpenLDAP/img/slapd/slapd4.png)
+4. ![](img/slapd/slapd4.png)
 
     Insira a senha do usuário admin do seu diretório OpenLDAP.
 
-5. ![](/OpenLDAP/img/slapd/slapd5.png)
+5. ![](img/slapd/slapd5.png)
 
     Na sequência, será solicitada a confirmação da senha digitada na etapa anterior, basta repeti-la e seguir com a reconfiguração.
 
-6. ![](/OpenLDAP/img/slapd/slapd6.png)
+6. ![](img/slapd/slapd6.png)
 
     Selecione o formato do banco de dados para armazenamento da árvore de diretório do seu servidor OpenLDAP. Aqui selecionamos o formato MDB, por ser mais atual e requerer menos configurações.
 
-7. ![](/OpenLDAP/img/slapd/slapd7.png)
+7. ![](img/slapd/slapd7.png)
 
     Selecione se deseja manter ou excluir a base de dados no caso de remoção do OpenLDAP do servidor. Nós decidimos por manter a base de dados selecionando **No**.
 
-8. ![](/OpenLDAP/img/slapd/slapd8.png)
+8. ![](img/slapd/slapd8.png)
 
     Caso hajam arquivos no diretório ```/var/lib/ldap```, os mesmos podem ser removidos durante a reconfiguração selecionando **Yes**.
 
-9. ![](/OpenLDAP/img/slapd/slapd9.png)
+9. ![](img/slapd/slapd9.png)
 
     O protocolo LDAPv2 é antigo e vem desabilitado por padrão em novas instalações do OpenLDAP. Como estamos implantando um ambiente do zero, decidimos não implantar esta versão em nossa configuração selecionando **No**.
 
@@ -358,11 +358,11 @@ $servers->setValue('login','bind_id','cn=admin,dc=meudominio,dc=com');
 
 Após realizar esta configuração, basta acessar o phpLDAPadmin através da URL http://ldap.meudominio.com/phpldapadmin através de qualquer navegador web dentro da mesma rede.
 
-![](/OpenLDAP/img/phpLDAPadmin/phpldapadmin1.png)
+![](img/phpLDAPadmin/phpldapadmin1.png)
 
 Faça login com o usuário ```cn=admin,dc=meudominio,dc=com``` e a senha definida durante a configuração do OpenLDAP.
 
-![](/OpenLDAP/img/phpLDAPadmin/phpldapadmin2.png)
+![](img/phpLDAPadmin/phpldapadmin2.png)
 
 ## Autenticação de estações clientes Windows
 
@@ -384,15 +384,15 @@ O pGina requer a instalação do Visual C++ e do .NET Framework 4.0 para funcion
 
 Após a instalação, inicie o aplicativo de configuração do pGina localizado em ```C:\Program Files\pGina\pGina.Configuration.exe```. Verifique se o **serviço pGina** está em execução e se **Credential Provider/GINA** está instalado e ativado. Esses componentes devem estar habilitados e em execução para que a autenticação funcione corretamente:
 
-![](/OpenLDAP/img/pgina/pgina1.png)
+![](img/pgina/pgina1.png)
 
 Em seguida, na aba Plugin Selection, marque as caixas de seleção da imagem para configurar a autenticação local:
 
-![](/OpenLDAP/img/pgina/pgina2.png)
+![](img/pgina/pgina2.png)
 
 Assegure que as opções sinalizadas estejam marcadas para o correto funcionamento da autenticação local através do pGina.
 
-![](/OpenLDAP/img/pgina/pgina3.png)
+![](img/pgina/pgina3.png)
 
 ### Configurar a autenticação LDAP
 
@@ -400,7 +400,7 @@ Concluída a configuração da autenticação local, devemos configurar a autent
 
 Não deixe de marcar a caixa da coluna **Change Password**, assim será possível o próprio usuário trocar a senha sem necessidade de intervenção de um administrador no servidor OpenLDAP.
 
-![](/OpenLDAP/img/pgina/pgina4.png)
+![](img/pgina/pgina4.png)
 
 Na guia **General**, configure todas as opções sinalizadas. Na nossa configuração, os dados foram preenchidos da seguinte maneira:
 
@@ -410,7 +410,7 @@ Na guia **General**, configure todas as opções sinalizadas. Na nossa configura
 - Search Password: ```senha do administrador do OpenLDAP```
 - Group DN Pattern: ```cn=%g,ou=Grupos,dc=meudominio,dc=com```
 
-![](/OpenLDAP/img/pgina/pgina5.png)
+![](img/pgina/pgina5.png)
 
 Na guia **Authentication**, desmarque a caixa Allow Empty Passwords e marque a caixa Search for DN.
 
@@ -419,7 +419,7 @@ Configure o Search Filter e Search Context(s) como segue:
 - Search Filter: ```cn=%u```
 - Search Context(s): ```ou=Usuarios,dc=meudominio,dc=com```
 
-![](/OpenLDAP/img/pgina/pgina6.png)
+![](img/pgina/pgina6.png)
 
 Na guia **Authorization**, habilite as seguintes opções conforme segue:
 
@@ -428,19 +428,19 @@ Na guia **Authorization**, habilite as seguintes opções conforme segue:
 - [X] Deny when LDAP authentication fails
 - [ ] Allow when server is unreachable
 
-![](/OpenLDAP/img/pgina/pgina7.png)
+![](img/pgina/pgina7.png)
 
 Na guia Gateway, vamos criar duas regras de binding, dessa forma sincronizaremos os usuários que pertençam a um grupo LDAP a um grupo local equivalente no Windows.
 
 Para montarmos este documento, foram criados dois grupos no servidor OpenLDAP com o mesmo nome dos grupos locais do Windows, **administrators** e **users**.
 
-![](/OpenLDAP/img/pgina/pgina8.png)
+![](img/pgina/pgina8.png)
 
 Para encerrarmos a configuração do plugin LDAP, na guia **Change Password**, assegure que a coluna **Hash Method** esteja selecionando **SHA1**.
 
 Clique em **Save and Close** para seguirmos com a configuração do pGina.
 
-![](/OpenLDAP/img/pgina/pgina9.png)
+![](img/pgina/pgina9.png)
 
 ### Ordem dos plugins de autenticação
 
@@ -448,7 +448,7 @@ Como o objetivo é autenticar sistemas em rede, devemos priorizar o plugin LDAP 
 
 Clique nas setas ao lado de cada plugin para colocar o plugin LDAP como primeiro em todas as caixas.
 
-![](/OpenLDAP/img/pgina/pgina10.png)
+![](img/pgina/pgina10.png)
 
 ### Verificando a configuração
 
@@ -458,13 +458,13 @@ Caso a conexão ocorra com sucesso, você deve obter as 3 verificações verdes 
 
 Clique em **Save and Close** para encerrar a configuração do pGina.
 
-![](/OpenLDAP/img/pgina/pgina11.png)
+![](img/pgina/pgina11.png)
 
 Agora basta selecionar a usar a autenticação **OpenLDAP Login** na tela inicial do Windows e fazer login nas máquinas Windows com seu usuário criado no servidor OpenLDAP.
 
-![](/OpenLDAP/img/pgina/pgina13.png)
+![](img/pgina/pgina13.png)
 
-![](/OpenLDAP/img/pgina/pgina14.png)
+![](img/pgina/pgina14.png)
 
 ## Conclusão
 
