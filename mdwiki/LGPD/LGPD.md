@@ -1,12 +1,8 @@
 # LGPD
 
----
-
 ## Objetivo da LGPD
 
 A LDPG tem como principal objetivo empoderar o consumidor e garantir a indenização na ocorrência de danos causados ao dono original dos dados coletados, ou seja, o usuário.
-
----
 
 ## Resumindo a LGPD
 
@@ -26,16 +22,12 @@ As empresas passam a ter até fevereiro de 2020 para se adequar às exigências 
 
 Processos já implementados para atender a GDPR podem ser adaptados para a LGPD
 
----
-
 ## Desafios de gestão e governança de privacidade
 
 - Gestão de consentimentos e revogações
 - Gestão de petições abertas por titulares
 - Gestão do ciclo de vida dos dados pessoais (data mapping & data discovery)
 - Implementação de técnicas de anonimização (os dados anonimizados não serão considerados dados pessoais pela lei desde que o processo não seja reversível)
-
----
 
 ## Motivadores da Lei
 
@@ -91,8 +83,6 @@ Além disso, quando forem feitas mudanças, na finalidade de um tratamento, não
 
 "O tratamento de dados pode ser feito se houver interesse legítimo de um responsável ou terceiro" - Tal justificativa causa ambiguidade na lei porque, não se sabe ao certo o que seria considerado interesse legítimo.
 
----
-
 ## Direitos do usuário
 
 A LGPD se preocupa em garantir a privacidade e controle de dados pelo próprio usuário, brasileiro ou não, que esteja no Brasil. É importante conhecer desde já esses direitos para poder exercê-los a partir de agosto do próximo ano, quando a LGPD entra em vigor e passa a valer efetivamente no país.
@@ -100,8 +90,6 @@ A LGPD se preocupa em garantir a privacidade e controle de dados pelo próprio u
 Todo usuário tem o direito de:
 
 ![SEUS DIREITOS](preview-icones-direitos.png)
-
----
 
 ## Penalidades para empresas
 
@@ -128,8 +116,6 @@ Mais que multas que afetam o caixa, não aplicar a Lei pode abalar a reputação
 - Planos de saúde
 - Publicidade e marketing
 
----
-
 ## Benefícios para empresas
 
 A adequação necessária para atender a nova regulamentação, pode ser considerada sinônimo de custos as empresas, cujo prazo para entrar em vigor é Agosto de 2020.
@@ -144,8 +130,6 @@ Entretanto, é possível entender a legislação como algo positivo, por trazer 
 A Lei Geral de Proteção de Dados tem potencial para motivar muitas mudanças as empresas que tratam dados pessoais. Os negócios que se adequarem antes do tempo previsto terão a oportunidade de ajustar seus processos para colher bons frutos da regulamentação, visando sua reputação a longo prazo.
 
 Uma nova cultura de proteção e privacidade de dados pessoais deve ser estabelecida, com mudanças significativas no gerenciamento desses dados, com maior organização, controle, centralização de dados adequados, minimizados e que possuam alto potencial na criação de insights estratégicos, com o refinamento dos processos de tratamento e utilização, possibilitando vantagem competitiva nas companhias que não esperarem o tempo máximo para se adequarem a legislação, e trazendo a possibilidade de trabalharem com informações mais limpas, adequadas e apoiadas em bases legais.
-
----
 
 ## Como empresas podem aderir à LGDP
 
@@ -225,8 +209,6 @@ Confira a linha do tempo da LGPD no país. Há sim conquistas a comemorar. Poré
 
 ![LINHA DO TEMPO](linha-do-tempo.png)
 
----
-
 ## Regulamentação da LGPD
 
 A fiscalização e a regulação da LGPD ficarão a cargo da Autoridade Nacional de Proteção de Dados Pessoais (ANPD). A ANPD será ainda um elo entre sociedade e governo, permitindo que as pessoas enviem dúvidas, sugestões, denúncias ligadas à LGPD para apuração.
@@ -254,8 +236,6 @@ A autoridade contará com o Conselho Nacional de Proteção de Dados Pessoais e 
 ### Ambiguidade
 
 Algumas partes da LGPD são ambíguas e podem resultar em interpretações que podem custar muito a uma empresa. Por isso, há necessidade da Agência Nacional de Proteção de Dados (ANPD) regular e clarificar essa lei para organizações.
-
----
 
 ## GDPR x LGDP
 
@@ -296,8 +276,6 @@ Autoridade de proteção de dados  |   Definido e estabelecido em nível naciona
 Fluxo de dados internacionais  |   Necessidade de decisão de adequação para transferir livremente dados para outros países. Em caso de falta de adequação, os instrumentos legais são fornecidos pelo regulamento. Realizado legalmente com base em interesses legítimos, se incomuns.  |   Necessidade de decisão de adequação para transferir livremente dados para outros países. Em caso de falta de adequação, instrumentos legais fornecidos pelo regulamento. Não pode basear-se em interesse legítimo, consentimento expresso talvez uma base legal.
 Período de adaptação    |   24 meses    |   18 meses, fevereiro de 2020. O DPA terá a palavra sobre como legitimar bancos de dados antigos.
 
----
-
 ## Conclusão
 
 - A LGPD é um grande avanço no cenário de segurança de dados pessoais
@@ -306,8 +284,6 @@ Período de adaptação    |   24 meses    |   18 meses, fevereiro de 2020. O DP
 - Assegura o controle e privacidade do usuário sobre seus dados pessoais
 - Dita regras claras sobre como tratar dados pessoais e quais são os direitos do usuário
 - Deve ser implantada em empresas até fevereiro de 2020
-
----
 
 ## Referências
 
