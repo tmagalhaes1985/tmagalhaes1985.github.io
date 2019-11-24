@@ -2,13 +2,13 @@
 
 ## Discos MBR
 
-O gerenciamento dos discos com partição MBR deve ser realizado através do fdisk
+O gerenciamento de discos com partição MBR deve ser realizado através do fdisk
 
 ```sudo yum -y install fdisk```
 
 ## Discos GPT
 
-O gerenciamento dos discos com partição GPT deve ser realizado através do gdisk
+O gerenciamento de discos com partição GPT deve ser realizado através do gdisk
 
 ```sudo yum -y install gdisk```
 
