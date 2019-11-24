@@ -56,9 +56,9 @@ The default ports are 5985 for HTTP, and 5986 for HTTPS.
 
 ## FIX - The WinRM client cannot process the request. Unencrypted traffic is currently disabled in the client configuration
 
-1. Execute o gpedit.msc
-2. Navegue até "Local Computer Policy > Computer Configuration > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Client"
-3. Habilite "Allow unencrypted traffic"
-4. Configure "Trusted Hosts" com "*"
+1. Run gpedit.msc
+2. Go to "Local Computer Policy > Computer Configuration > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Client"
+3. Enable "Allow unencrypted traffic"
+4. Configure "Trusted Hosts" with "*"
 
-![GPEdit.msc WinRM fix](/mdwiki/pages/kb/microsoft/winrm/gpedit_winrm.png)
+![GPEdit.msc WinRM fix](gpedit_winrm.png)
