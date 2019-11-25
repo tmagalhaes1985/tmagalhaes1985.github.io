@@ -1,3 +1,3 @@
-# tmagalhaes1985.github.io
+# tmagalhaes.me
 
-[tmagalhaes1985 wiki](https://tmagalhaes1985.github.io/mdwiki/)
+[tmagalhaes.me Wiki](https://tmagalhaes1985.github.io/)
