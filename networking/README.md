@@ -534,62 +534,67 @@ network | host
 172.33.1.64 = 10101100.00100001.00000001.010000 00
 255.255.255.252 = 11111111.11111111.11111111.111111 00
 
-The rightmost bit of the subnet mask (network bits) determines the subnet multiple and
-where it starts. For this example, bit 3 of the 4th octet has a binary value of 4. The
-subnet multiple starts at 0 with multiples of 4 (0, 4, 8, 12 etc). The next available subnet
-is 172.33.1.68/30. Interfaces on the same router must be assigned to different subnets.
+The rightmost bit of the subnet mask (network bits) determines the subnet multiple and where it starts. For this example, bit 3 of the 4th octet has a binary value of 4. The subnet multiple starts at 0 with multiples of 4 (0, 4, 8, 12 etc). The next available subnet is 172.33.1.68/30. Interfaces on the same router must be assigned to different subnets.
+
 Wildcard Masks
-The wildcard mask is a technique for matching specific IP address or range of IP
-addresses. It is used by routing protocols and access control lists (ACL) to manage
-routing and packet filtering.
-The wildcard mask is an inverted mask where the matching IP address or range is based
-on 0 bits. The additional bits are set to 1 as no match required. The wildcard 0.0.0.0 is
-used to match a single IP address. Wildcard mask for 255.255.224.0 is 0.0.31.255(invert the bits so zero=1 and one=0)
+
+The wildcard mask is a technique for matching specific IP address or range of IP addresses. It is used by routing protocols and access control lists (ACL) to manage routing and packet filtering.
+
+The wildcard mask is an inverted mask where the matching IP address or range is based on 0 bits. The additional bits are set to 1 as no match required. The wildcard 0.0.0.0 is used to match a single IP address. Wildcard mask for 255.255.224.0 is 0.0.31.255(invert the bits so zero=1 and one=0)
+
 11111111.11111111.111 00000.00000000 = subnet mask
 00000000.00000000.000 11111.11111111 = wildcard mask
+
 Example 1: Classful Wildcard Mask
-The following wildcard will only match on the 192.168.3.0 subnet and not match on
-everything else. This could be used with an ACLfor instance to permit or deny a subnet.
-It could define a single subnet to advertise from OSPF as well.
+
+The following wildcard will only match on the 192.168.3.0 subnet and not match on everything else.
+
+This could be used with an ACLfor instance to permit or deny a subnet. It could define a single subnet to advertise from OSPF as well.
+
 192.168.3.0 0.0.0.255
 1.   168. 3. 0
 11000000.10101000.00000011.00000000
 00000000.00000000.00000000.11111111 = 0.0.0.255
+
 Example 2: Classless Wildcard Mask
-The classless wildcard can filter based on any network boundary. The following
-wildcard mask matches on the subnet 192.168.4.0 serial link only. It is the equivalent of
-255.255.255.252 subnet mask.
+
+The classless wildcard can filter based on any network boundary. The following wildcard mask matches on the subnet 192.168.4.0 serial link only. It is the equivalent of 255.255.255.252 subnet mask.
+
 1.   168. 4. 0
 11000000.10101000.00000100.00000000
 00000000.00000000.00000000.00000011 = 0.0.0.3
 192.168.4.0 0.0.0.3 = match on 192.168.4.1 and 192.168.4.2
-The CIDR notation denotes the number of bits in the subnet mask. For instance a class C
-address with subnet mask 255.255.255.240 = /28
+
+The CIDR notation denotes the number of bits in the subnet mask. For instance a class C address with subnet mask 255.255.255.240 = /28
+
 Summarization
-Refer to the network topology drawing and select the IP address that will summarize all
-of the routes advertised to Router-1?
-Summarization aggregates (includes) all bits that are common to all IP addresses. The
-example has four different IP addresses with /24 subnet mask. Start from the left andmove right until the bits are mismatched (non-common). The common bits all occur up
-to and including bit 29. That translates to a /29 subnet mask (255.255.255.248)
-assigning 29 bits to the network portion. The /29 subnet mask can summarize IP address
-range 172.16.1.0 - 172.16.1.7
+
+Refer to the network topology drawing and select the IP address that will summarize all of the routes advertised to Router-1?
+
+Summarization aggregates (includes) all bits that are common to all IP addresses. The example has four different IP addresses with /24 subnet mask. Start from the left andmove right until the bits are mismatched (non-common). The common bits all occur up to and including bit 29. That translates to a /29 subnet mask (255.255.255.248) assigning 29 bits to the network portion. The /29 subnet mask can summarize IP address range 172.16.1.0 - 172.16.1.7
+
 172.16.1.2/24 = 10101100.00010000.00000001.00000 010
 172.16.1.3/24 = 10101100.00010000.00000001.00000 011
 172.16.1.5/24 = 10101100.00010000.00000001.00000 101
 172.16.1.6/24 = 10101100.00010000.00000001.00000 110
-The summary address is obtained from the common bits that include all IP addresses
-ignoring the 3 non-common bits. The single summarized address is an aggregate that can
-advertise all included IP addresses.
+
+The summary address is obtained from the common bits that include all IP addresses ignoring the 3 non-common bits. The single summarized address is an aggregate that can advertise all included IP addresses.
+
 Summary Address = 172.16.1.0/29
-1.10 Compare and contrast IPv4 address types
-The following describe the standard network message types. Multicasting forwards the
-same packet to multiple destinations providing most efficient bandwidth utilization.
-Table 1-6 Network Message Types
-unicast packet sent from a single source to a single destination
-multicast packet sent from a single source to a destination group
-broadcast packet sent from a single source to all hosts on a VLAN
-anycast packet sent from a single source to nearest destination
-1.11 Describe the need for private IPv4 addressing
+
+### 1.10 Compare and contrast IPv4 address types
+
+The following describe the standard network message types. Multicasting forwards the same packet to multiple destinations providing most efficient bandwidth utilization.
+
+Network Message Types:
+
+- unicast packet sent from a single source to a single destination
+- multicast packet sent from a single source to a destination group
+- broadcast packet sent from a single source to all hosts on a VLAN
+- anycast packet sent from a single source to nearest destination
+
+### 1.11 Describe the need for private IPv4 addressing
+
 There are various advantages to private IP addressing that has enabled deployment
 across the enterprise network. The number of public IP addresses available has
 decreased over the past 10 years. They are now only assignable for internet access.
@@ -604,12 +609,13 @@ global address space conservation
 network security
 enables intranet connectivityless costly than public addresses
 assign to hosts without internet connections
-1.12 Select appropriate IPv6 addressing based on requirements
-The /48 network address block is a typical assignment to an enterprise network. It
-provides 16 bits for subnetting as part of the /64 network prefix. In addition there is a
-/64 (64 bits) available for host address portion. Each number or letter of an IPv6
-address is a hexidecimal value comprised of 4 bits with 16 possible values from 0 to F.
+
+### 1.12 Select appropriate IPv6 addressing based on requirements
+
+The /48 network address block is a typical assignment to an enterprise network. It provides 16 bits for subnetting as part of the /64 network prefix. In addition there is a /64 (64 bits) available for host address portion. Each number or letter of an IPv6 address is a hexidecimal value comprised of 4 bits with 16 possible values from 0 to F.
+
 The subnet portion has 16 bits that can be assigned with variable subnet masks.
+
 IPv6 address = 2001:AD7:4312:1D34.0000:0000:0000:0001/128
 single subnet = 2001:AD7:4312:1D34::/64
 65,535 subnets (16 bits) = 2001:AD7:4312::/48
@@ -618,20 +624,21 @@ network prefix + subnets = 2001:AD7:4312:0000::/64
 host identifier = 0000:0000:0000:0000/64 - FFFF:FFFF:FFFF:FFFF/64
 regions data centers subnets
 0000 0000 0000 0000
-The first 4 bits (49 - 52) can be assigned to identify regions (bold). The second group of
-4 bits (53 - 56) can be assigned to identify data centers. The remaining group of 8 bits
-(57 - 64) are assigned to subnets for each data center.
+
+The first 4 bits (49 - 52) can be assigned to identify regions (bold). The second group of 4 bits (53 - 56) can be assigned to identify data centers. The remaining group of 8 bits (57 - 64) are assigned to subnets for each data center.
+
 regions = /52
 data centers = /56
 data center subnets = /64
-The number of regions, data centers and number of subnets per data center determine the
-subnets masks selected. For example with only 3 regions, the /50 subnet mask with 2
-bits (49-50) would provide the required 4 region identifiers. The following IPv6
-address ranges are assigned to regions, data centers and subnets per data center.
+
+The number of regions, data centers and number of subnets per data center determine the subnets masks selected. For example with only 3 regions, the /50 subnet mask with 2 bits (49-50) would provide the required 4 region identifiers. The following IPv6 address ranges are assigned to regions, data centers and subnets per data center.
+
 16 regions: 2001:AD7:4312:1000::/52 - 2001:AD7:4312:F000::/52
 16 data centers: 2001:AD7:4312:0000::/56 - 2001:AD7:4312:0F00::/56
 DC subnets: 2001:AD7:4312:0000::/64 - 2001:AD7:4312:00FF::/64
-1.13 Configure, verify and troubleshoot IPv6 addressing
+
+### 1.13 Configure, verify and troubleshoot IPv6 addressing
+
 IPv6 is based on hexidecimal notation with values from number 0-9 and A to F. IPv6
 addressing is comprised of 8 groups with 4 hexidecimal values of 4 bits each for 16 bits
 per group. The 16 bits per group x 8 groups equals 128 bits per IPv6 address.
@@ -648,31 +655,36 @@ Advantages of IPv6 Addressing
 scalability
 no broadcasts
 address autoconfiguration
+
 IPv6 Addressing Rules
-double colon :: can summarize multiple consecutive zeros for multiple groups
-only one double colon is permitted per IPv6 address
-multiple zeros in a single group can be summarized with a single zero.
-leading zeros in a single group can be deleted
-no less than 8 groups including zero groups
+
+- double colon :: can summarize multiple consecutive zeros for multiple groups
+- only one double colon is permitted per IPv6 address
+- multiple zeros in a single group can be summarized with a single zero.
+- leading zeros in a single group can be deleted
+- no less than 8 groups including zero groups
+
 Any IPv6 address with less than 8 groups must have double colon to summarize
 consecutive zero groups.
+
 Example 1:
-What is the alternate equivalent notation for the following IPv6 address?
-2001:25D3:0000:0000:009F:CD2A:0000:332E
+
+What is the alternate equivalent notation for the following IPv6 address? 2001:25D3:0000:0000:009F:CD2A:0000:332E
+
 A. 2001:25D3:9F::CD2A:0000:332E
 B. 2001:25D3:9F:CD2A:0:332E
 C. 2001:25D3::9F:CD2A:0:332E
 D. 2001:25D3:0:009F:CD2A:332E
-The correct IPv6 address 2001:25D3::9F:CD2A:0:332E does the following:
+
+The correct IPv6 address C. 2001:25D3::9F:CD2A:0:332E does the following:
+
 1. Minimizes multiple zero groups (group 3 and 4) to a double colon ::
 2. Deletes leading zeros from a single group (group 5)
-3. Minimizes a single group with all zeros to single zero :0: (group 7)A. 2001:25D3:9F::CD2A:0000:332E
-(double colon in wrong location and group 7 not summarized to single zero)
-B. 2001:25D3:9F:CD2A:0:332E
-(zero groups 3 and 4 removed instead of being summarized to double colon)
-D. 2001:25D3:0:009F:CD2A:332E
-(group 3 and group 4 should summarizes to double colon :: and not a single zero.
-group 5 leading zeros were not deleted and group 7 removed instead of a single zero)
+3. Minimizes a single group with all zeros to single zero :0: (group 7)
+
+A. 2001:25D3:9F::CD2A:0000:332E (double colon in wrong location and group 7 not summarized to single zero)
+B. 2001:25D3:9F:CD2A:0:332E (zero groups 3 and 4 removed instead of being summarized to double colon)
+D. 2001:25D3:0:009F:CD2A:332E (group 3 and group 4 should summarizes to double colon :: and not a single zero. group 5 leading zeros were not deleted and group 7 removed instead of a single zero)
 
 Example 2:
 
@@ -683,77 +695,94 @@ B. 2001:1234:4567:AD:12DE:1
 C. FEC0:ABCD:9WCD:0067::2A4
 D. 2001:AD:654C:1234::9
 
-Options A, B and C have features that are not valid with IPv6 addressing. The following explains the issues with each address:
+A, B and C have features that are not valid with IPv6 addressing. The following explains the issues with each address:
 
-Option A - has double colons :: occurring twice. The double colon is only permitted once per IPv6 address. 2001:0000:12D4::043D::1
-Option B - has only 6 groups. IPv6 requires 8 groups (8 x 16 bits = 128 bits). Any IPv6 address with less than 8 groups must have double colon to summarize zero groups.
+A. has double colons :: occurring twice. The double colon is only permitted once per IPv6 address.
+
+2001:0000:12D4::043D::1
+
+B. has only 6 groups. IPv6 requires 8 groups (8 x 16 bits = 128 bits). Any IPv6 address with less than 8 groups must have double colon to summarize zero groups.
 
 2001:1234:4567:AD:12DE:1
 
-Option C - has an illegal value (W). IPv6 is based on hexidecimal notation with values from 0 to F hexidecimal. 
+C. has an illegal value (W). IPv6 is based on hexidecimal notation with values from 0 to F hexidecimal. 
 
 FEC0:ABCD:9WCD:0067::2A4
 
 IPv4 to IPv6 transition methods
 
 The solutions available for IPv4 to IPv6 transition include tunneling and translation.
-ISATAP Tunneling
-NAT Proxy and Translation (NAT-PT)
-Teredo Tunneling
-6to4 Tunneling
-IPv6 Duplicate Address DetectionIPv6 duplicate address detection is required on all unicast IPv6 addresses assigned to
-an interface. The detection starts with Stateless Address Autoconfiguration (SLAAC)
-assigning an IPv6 link-local address to a node. The network interface state is tentative
-during the detection process. The network administrator can enable duplicate address
-detection again by assigning a new IPv6 address.
-There are a variety of IPv6 address states based on the operational status of the
-interface and duplicate address detection. The IPv6 address state is pending while the
-associated network interface is administratively down. The following statements
-correctly describe what happens when a router detects an IPv6 duplicate address.
-duplicate global addresses are not used on interfaces where they are assigned.
-IPv6 packet forwarding is disabled on interface with duplicate link-local address.
-IPv6 addresses are all disabled on any interface that has a duplicate link-local
-address until it is resolved.
-1.14 Configure and verify IPv6 Stateless Address Auto Configuration
+
+- ISATAP Tunneling
+- NAT Proxy and Translation (NAT-PT)
+- Teredo Tunneling
+- 6to4 Tunneling
+
+IPv6 Duplicate Address Detection
+
+IPv6 duplicate address detection is required on all unicast IPv6 addresses assigned to an interface. The detection starts with Stateless Address Autoconfiguration (SLAAC) assigning an IPv6 link-local address to a node. The network interface state is tentative during the detection process. The network administrator can enable duplicate address detection again by assigning a new IPv6 address.
+
+There are a variety of IPv6 address states based on the operational status of the interface and duplicate address detection. The IPv6 address state is pending while the associated network interface is administratively down. The following statements correctly describe what happens when a router detects an IPv6 duplicate address. duplicate global addresses are not used on interfaces where they are assigned. IPv6 packet forwarding is disabled on interface with duplicate link-local address. IPv6 addresses are all disabled on any interface that has a duplicate link-local address until it is resolved.
+
+### 1.14 Configure and verify IPv6 Stateless Address Auto Configuration
+
 IPv6 makes addressing easier when autoconfiguration is enabled. There is a unique
 link-local address assigned automatically to the interface. Enabling SLAAC however
 does not send DNS server addressing to clients. The feature only provides an IP address
 and default gateway to clients. The following methods are available for assigning IPv6
 addresses that are not static (manual) assignment.
+
 Stateful DHCPv6
+
 Stateful DHCPv6 is most similar to DHCPv4 for IPv4 addressing. The IPv6 client sends
 a broadcast request to the nearest DHCPv6 server for IP address configuration. The
 DHCPv6 server assigns the IPv6 address and any additional required addressing
 configuration such as default gateway, DNS server etc.
+
 Stateless DHCPv6
+
 Stateless DHCPv6 feature uses Stateless Address Autoconfiguration (SLAAC) for
 assigning an IPv6 address and default gateway to clients. The feature does however
 require a DHCPv6 server for sending a variety of additional IP configuration settings
 including DNS server address to clients.
+
 Stateless Address Autoconfiguration (SLAAC)
+
 Stateless autoconfiguration generates a unique link-local address based on EUI-64
 format. The IPv6 address is based on the network prefix sent in Router Advertisement
 (RA) from the local router. In addition SLAAC obtains the default gateway from Router
-Advertisements to configure clients. IPv6 processing is automatically enabled on an
-interface as soon as an IPv6 address is assigned to the interface. The IPv6 interfacestate is the status based on an autoconfiguration address request.
-Tentative: address is being verified with duplicate address detection.
-Valid: address can send and receive unicast traffic.
-Preferred: address can send and receive unicast traffic.
-Deprecated: address can send/receive unicasts though not recommended.
-Invalid: address cannot be used to send or receive unicast traffic.
+Advertisements to configure clients.
+
+IPv6 processing is automatically enabled on an interface as soon as an IPv6 address is assigned to the interface. The IPv6 interfacestate is the status based on an autoconfiguration address request.
+
+- Tentative: address is being verified with duplicate address detection.
+- Valid: address can send and receive unicast traffic.
+- Preferred: address can send and receive unicast traffic.
+- Deprecated: address can send/receive unicasts though not recommended.
+- Invalid: address cannot be used to send or receive unicast traffic.
+
 IPv6 Address Configuration
+
 The following IOS command assigns a static IPv6 address to a router interface. The
 ipv6 enable command is not required when an IPv6 address is already assigned to an
 interface.
-router(config-if)# ipv6 address 2001:AF42:1212:4F32::32/64
-The following IOS command enables autoconfiguration on a network interface. The ipv6
-enable command is not required.
-router(config-if)# ipv6 address autoconfig
+
+```router(config-if)# ipv6 address 2001:AF42:1212:4F32::32/64```
+
+The following IOS command enables autoconfiguration on a network interface. The ipv6 enable command is not required.
+
+```router(config-if)# ipv6 address autoconfig```
+
 Verify IPv6 Addressing
+
 The following IOS command will show the status of an IPv6 enabled interface.
-router# show ipv6 interface
-1.15 Compare and contrast IPv6 address types
+
+```router# show ipv6 interface```
+
+### 1.15 Compare and contrast IPv6 address types
+
 Table 1-7 IPv6 Address Types
+
 global unicast address internet routable with global routing prefix
 multicast address prefix FF00::/8 (send to group members)
 unique local address
@@ -767,143 +796,123 @@ anycast address
 send to any member of a group that is nearest and
 available, typically default route ::/0
 unspecified address source address for initializing host, :1/128
-2.0 LAN Switching Technologies
-2.1 Describe and verify switching conceptsThe following is a list of network services provided by switches:
-switches forward data link layer traffic
-switches create and maintain the MAC address table
-switches support segmenting collision domains
+
+## 2.0 LAN Switching Technologies
+
+### 2.1 Describe and verify switching conceptsT
+
+The following is a list of network services provided by switches:
+
+- switches forward data link layer traffic
+- switches create and maintain the MAC address table
+- switches support segmenting collision domains
+
 MAC address table
-Every network device is assigned a unique hardware address from the manufacturer
-called a MAC address. The purpose of a MAC address is to provide a unique layer 2
-identifier. That enables communication between devices of the same network segment
-(VLAN) or different segments. The switch forwarding decisions are based on the MAC
-address and assigned port.
+
+Every network device is assigned a unique hardware address from the manufacturer called a MAC address. The purpose of a MAC address is to provide a unique layer 2 identifier. That enables communication between devices of the same network segment (VLAN) or different segments. The switch forwarding decisions are based on the MAC address and assigned port.
+
 enable packet forwarding between hosts on the same VLAN
 globally unique network device identifier associated with a VLAN
-The MAC (physical) address is 48 bits of hexidecimal numbering. The first 24 bits is a
-manufacturer OUI and the last 24 bits (bold) is a unique serial number (SN).
+
+The MAC (physical) address is 48 bits of hexidecimal numbering. The first 24 bits is a manufacturer OUI and the last 24 bits (bold) is a unique serial number (SN).
+
 OUI | SN
 0000.000a.aaaa
-The switch builds a MAC address table comprised of MAC address, switch port and
-VLAN membership for each connected host. The switch creates a separate MAC
-address table for each configured VLAN. Any unicast flooding of a frame to learn a
-MAC address is for the assigned VLAN only.
-The following IOS show command will list the contents of the MAC address table for a
-switch. Where there are multiple VLANs configured, the switch will list all MAC
-address tables for all VLANs in a single table listing. The switch builds and maintains a
-separate MAC address table for each VLAN configured.
-switch# show mac address-table
+
+The switch builds a MAC address table comprised of MAC address, switch port and VLAN membership for each connected host. The switch creates a separate MAC address table for each configured VLAN. Any unicast flooding of a frame to learn a MAC address is for the assigned VLAN only.
+
+The following IOS show command will list the contents of the MAC address table for a switch. Where there are multiple VLANs configured, the switch will list all MAC address tables for all VLANs in a single table listing. The switch builds and maintains a separate MAC address table for each VLAN configured.
+
+```switch# show mac address-table```
+
 Microsegmentation
-The newer Ethernet Gigabit switch ports that support full-duplex operation have
-enabled microsegmentation. That eliminates collisions on the switch and dedicates all
-port bandwidth to the connected host. CSMA/CD is a method for detecting Ethernet
-collisions on older hubs and bridges. It is no longer required with full-duplex switch
-ports. Each frame is assigned a random time to re-send a frame when collisions occur.
+
+The newer Ethernet Gigabit switch ports that support full-duplex operation have enabled microsegmentation. That eliminates collisions on the switch and dedicates all port bandwidth to the connected host. CSMA/CD is a method for detecting Ethernet collisions on older hubs and bridges. It is no longer required with full-duplex switch ports. Each frame is assigned a random time to re-send a frame when collisions occur.
+
 Switching MethodsCut-Through Switching
-The cut-through switching technique optimizes performance by examining only the first
-six bytes (destination MAC address) of an Ethernet frame before making a forwarding
-decision. The switch does a MAC address table lookup for the destination MAC
-address and forwards the frame. The advantage is the forwarding decision is made
-before all of the frame arrives and thereby minimizing network latency.
+
+The cut-through switching technique optimizes performance by examining only the first six bytes (destination MAC address) of an Ethernet frame before making a forwarding decision. The switch does a MAC address table lookup for the destination MAC address and forwards the frame. The advantage is the forwarding decision is made before all of the frame arrives and thereby minimizing network latency.
+
 Store-and-Forward Switching
-The store-and-forward method is traditional switching where the frame is not
-forwarded until all of the frame has arrived. The switch copies the frame to memory
-before examining the destination MAC address and forwarding the frame.
+
+The store-and-forward method is traditional switching where the frame is not forwarded until all of the frame has arrived. The switch copies the frame to memory before examining the destination MAC address and forwarding the frame.
+
 Cisco Express Forwarding (CEF)
-CEF is a layer 3 switching technique that creates FIB and adjacency tables for
-optimized packet forwarding. It is only available on routers and switch platforms with
-routing enabled and the required hardware.
+
+CEF is a layer 3 switching technique that creates FIB and adjacency tables for optimized packet forwarding. It is only available on routers and switch platforms with routing enabled and the required hardware.
+
 MAC learning and Aging
-MAC address learning occurs when the switch is first started and connected hosts start
-sending frames. In addition MAC learning is triggered when the aging time expires. The
-switch removes MAC address table entries every five minutes as a default.
-The layer 2 broadcast is forwarded to all devices on a single broadcast (segment)
-domain. The switch creates the broadcast packet ffff.ffff.ffff as the destination MAC
-address and forwards it out all ports except where the frame was learned. The port
-where the frame was learned is the sending host. Note that broadcast frames are created
-and never learned from an inbound switch port. The following summarizes what
-happens when a host sends a packet to a server on the same VLAN for the first time.
-1. The switch adds the source MAC address of the incoming frame if it is not listed in
-the MAC address table.
+
+MAC address learning occurs when the switch is first started and connected hosts start sending frames. In addition MAC learning is triggered when the aging time expires. The switch removes MAC address table entries every five minutes as a default.
+
+The layer 2 broadcast is forwarded to all devices on a single broadcast (segment) domain. The switch creates the broadcast packet ffff.ffff.ffff as the destination MAC address and forwards it out all ports except where the frame was learned. The port where the frame was learned is the sending host. Note that broadcast frames are created and never learned from an inbound switch port. The following summarizes what happens when a host sends a packet to a server on the same VLAN for the first time.
+
+1. The switch adds the source MAC address of the incoming frame if it is not listed in the MAC address table.
 2. The switch does a MAC address table lookup for the destination MAC address.
-3. The switch floods the frame using destination MAC address ffff.ffff.ffff out all
-ports except the port where the source MAC address was learned.
-4. The server with the assigned MAC address responds with a frame that lists the
-MAC address.5. The switch updates the MAC address table with the MAC address of the server.
-That is the destination MAC address for frames sent from the host.
-6. The switch forwards the frames from the host to the server based on the switch port
-assigned to the server.
+3. The switch floods the frame using destination MAC address ffff.ffff.ffff out all ports except the port where the source MAC address was learned.
+4. The server with the assigned MAC address responds with a frame that lists the MAC address.5. The switch updates the MAC address table with the MAC address of the server. That is the destination MAC address for frames sent from the host.
+6. The switch forwards the frames from the host to the server based on the switch port assigned to the server.
+
 Unicast MAC Flooding
-The switch will first flood the local VLAN segment (unicast MAC flooding) to
-determine if the host is local. The ARP broadcast is only sent for packet forwarding
-between local and remote hosts on different VLANs or subnets. Unknown unicast frames
-are retransmitted only to ports that belong to the same VLAN.
+
+The switch will first flood the local VLAN segment (unicast MAC flooding) to determine if the host is local. The ARP broadcast is only sent for packet forwarding between local and remote hosts on different VLANs or subnets. Unknown unicast frames are retransmitted only to ports that belong to the same VLAN.
+
 Broadcast Domain
-The VLAN creates a broadcast domain that is defined by assigning switch port/s to the
-same VLAN. All hosts connected to switch ports of the same VLAN are part of the same
-broadcast domain. Creating multiple VLANs defines multiple broadcast domains.
-Switches do not forward broadcast or multicast traffic between VLANs minimizing
-bandwidth utilization compared with hubs and bridges. The switch only forwards
-unicasts, broadcasts and multicasts on the same segment (VLAN).
+
+The VLAN creates a broadcast domain that is defined by assigning switch port/s to the same VLAN. All hosts connected to switch ports of the same VLAN are part of the same broadcast domain. Creating multiple VLANs defines multiple broadcast domains. Switches do not forward broadcast or multicast traffic between VLANs minimizing bandwidth utilization compared with hubs and bridges. The switch only forwards unicasts, broadcasts and multicasts on the same segment (VLAN).
+
 Frame Switching
-The host sends packets with an IP header encapsulated in a frame. The source and
-destination IP address in the header are required for end-to-end connectivity. Layer 2
-switches do not examine or understand IP addressing.
-Switches and wireless access points are network devices that make forwarding
-decisions based on the destination MAC address in the frame. They do not change MAC
-addressing in the frame. Wireless access points are essentially bridges.
-The switch does not rewrite MAC addressing in the frame header. It examines the
-source MAC address and destination MAC address. The source MAC address of the
-incoming frame is added to the MAC address table if it isn’t listed.
-The switch examines the frame header for the destination MAC address and does a
-MAC address table lookup to make a forwarding decision. The frame is then forwarded
-out the switch port associated with the destination MAC address where the host is
-connected. Any destination MAC address that is not local is forwarded to the router.
-The IP addressing does not change between source and destination.
-switches use the MAC address in a frame to make forwarding decisions
-switches forward frames and don’t rewrite source or destination MAC addressRouters make forwarding decisions based on source and destination IP address. The
-router will do a routing table lookup then rewrite the source and destination MAC
-address in the frame header.
+
+The host sends packets with an IP header encapsulated in a frame. The source and destination IP address in the header are required for end-to-end connectivity. Layer 2 switches do not examine or understand IP addressing.
+
+Switches and wireless access points are network devices that make forwarding decisions based on the destination MAC address in the frame. They do not change MAC addressing in the frame. Wireless access points are essentially bridges.
+
+The switch does not rewrite MAC addressing in the frame header. It examines the source MAC address and destination MAC address. The source MAC address of the incoming frame is added to the MAC address table if it isn’t listed.
+
+The switch examines the frame header for the destination MAC address and does a MAC address table lookup to make a forwarding decision. The frame is then forwarded out the switch port associated with the destination MAC address where the host is connected. Any destination MAC address that is not local is forwarded to the router.
+
+The IP addressing does not change between source and destination. Switches use the MAC address in a frame to make forwarding decisions switches forward frames and don’t rewrite source or destination MAC addressRouters make forwarding decisions based on source and destination IP address. The router will do a routing table lookup then rewrite the source and destination MAC address in the frame header.
+
 Frame Switching Examples
+
 Example 1:
-Refer to the network drawing where Host-1 has sent a packet to Server-1. The
-destination MAC address is unknown. The switch will unicast flood (learning) the
-frame out all ports except the port where the frame was learned from (Gi1/1). Server-1
-with the matching destination MAC address receives the frame and sends a frame to
-Switch-1. The switch updates the MAC address table with the MAC address and
-associated port (Gi1/3) of Server-1.
+
+Refer to the network drawing where Host-1 has sent a packet to Server-1. The destination MAC address is unknown. The switch will unicast flood (learning) the frame out all ports except the port where the frame was learned from (Gi1/1). Server-1 with the matching destination MAC address receives the frame and sends a frame to Switch-1. The switch updates the MAC address table with the MAC address and associated port (Gi1/3) of Server-1.
+
 Example 2:
-Refer to the network drawing where Host-2 has sent a packet to Server-1. The switch
-will examine the source and destination MAC address of the frame arriving on port
-Gi1/2 from Host-2. The MAC address table has no entry for either MAC address. The
-switch will then add the source MAC address (Host-2) to the MAC table. In addition
-the switch will unicast flood (MAC learning) the frame out all ports except the port
-where the frame was learned from (Gi1/2). Server-1 with the matching destination
-MAC address receives the frame and sends a frame to the switch. The switch updates
-the MAC address table with the MAC address of Server-1.
+
+Refer to the network drawing where Host-2 has sent a packet to Server-1. The switch will examine the source and destination MAC address of the frame arriving on port Gi1/2 from Host-2. The MAC address table has no entry for either MAC address. The switch will then add the source MAC address (Host-2) to the MAC table. In addition the switch will unicast flood (MAC learning) the frame out all ports except the port where the frame was learned from (Gi1/2). Server-1 with the matching destination MAC address receives the frame and sends a frame to the switch. The switch updates the MAC address table with the MAC address of Server-1.
+
 0000.000b.bbbb will be added to the MAC address tableframe will be forwarded out all active switch ports except port Gi1/2
+
 Example 3:
-Refer to the network drawing where Host-2 has sent a packet to Server-1. Switch-1 will
-examine the incoming frame from Host-2 arriving on port Gi1/2. The switch will do a
-MAC table lookup based on the destination MAC address. The switch determines the
-destination MAC address is assigned to Server-1. The frame is forwarded to port Gi1/3
-associated with Server-1.
-switch will examine the frame and do a MAC address table lookup
-frame is forwarded out switch port Gi1/32.2 Interpret Ethernet frame format
-The Cyclic Redundancy Check (CRC) is a number (FCS) calculated on each frame
-received to verify data integrity. The layer 2 frame is discarded if the received FCS
-number doesn’t match the original. It is an error detection technique and not error
-recovery. Any error detection and/or error recovery is managed by transport layer 4
-protocols. The source MAC address (SA) and destination MAC address (DA) are 6
-bytes. The following are the fields that comprise an Ethernet frame.
-FCS
-type/length
-preamble
-source MAC address (6 bytes)
-destination MAC address (6 bytes)
-payload (variable)
-2.3 Troubleshoot interface and cabling errors
+
+Refer to the network drawing where Host-2 has sent a packet to Server-1.
+
+1. Switch-1 will examine the incoming frame from Host-2 arriving on port Gi1/2.
+2. The switch will do a MAC table lookup based on the destination MAC address.
+3. The switch determines the destination MAC address is assigned to Server-1.
+4. The frame is forwarded to port Gi1/3 associated with Server-1.
+5. Switch will examine the frame and do a MAC address table lookup
+6. Frame is forwarded out switch port Gi1/32.2
+
+Interpret Ethernet frame format
+
+The Cyclic Redundancy Check (CRC) is a number (FCS) calculated on each frame received to verify data integrity. The layer 2 frame is discarded if the received FCS number doesn’t match the original. It is an error detection technique and not error recovery. Any error detection and/or error recovery is managed by transport layer 4 protocols. The source MAC address (SA) and destination MAC address (DA) are 6 bytes.
+
+The following are the fields that comprise an Ethernet frame:
+
+- FCS
+- type/length
+- preamble
+- source MAC address (6 bytes)
+- destination MAC address (6 bytes)
+- payload (variable)
+
+### 2.3 Troubleshoot interface and cabling errors
+
 Show Interfaces
+
 The results provided by the show interfaces command include layer 1 and layer 2
 status information for all or individual network interfaces (ethernet, serial etc).
 Interface = Layer 1, Line protocol = Layer 2
@@ -3249,292 +3258,325 @@ Cisco ACLPath Trace is supported on layer 3 interfaces only
 
 ### 6.5 Configure, verify and troubleshoot basic device hardening
 
-Local Authentication
-The following IOS command will configure a username called cisconet with user
-EXEC mode privilege. In addition the password for the manually configured account is
-cisco. The same command is used on Cisco Catalyst switches and routers. Privilege
-level 15 is the highest privilege level and level 1 (user EXEC mode) is the lowest.
-device(config)# username cisconet privilege 1 password cisco
-Hidden Password
-The following IOS command will configure a username called admin with privilege
-level 15 and a hidden password. The 7 designates the password as hidden (encrypted)
-with the configuration script. The encrypted password is copy/pasted to the command
-line. The service password-encryption command must be enabled on the network
-device for type 7 encryption.
-device(config)# username admin privilege 15 password 7 [encrypted password]
-Enable Password
-The following IOS commands will configure an enable password on a Cisco switch or
-router. The enable password will be required before access to privileged EXEC mode
-is allowed (switch#). That mode then allows access to global configuration mode.
+#### Local Authentication
+
+The ```device(config)# username cisconet privilege 1 password cisco``` IOS command will configure a username called cisconet with user EXEC mode privilege. In addition the password for the manually configured account is cisco. The same command is used on Cisco Catalyst switches and routers. Privilege level 15 is the highest privilege level and level 1 (user EXEC mode) is the lowest.
+
+#### Hidden Password
+
+The ```device(config)# username admin privilege 15 password 7 [encrypted password]``` IOS command will configure a username called admin with privilege level 15 and a hidden password. The 7 designates the password as hidden (encrypted) with the configuration script. The encrypted password is copy/pasted to the command line. The service password-encryption command must be enabled on the network device for type 7 encryption.
+
+#### Enable Password
+
+The following IOS commands will configure an enable password on a Cisco switch or router. The enable password will be required before access to privileged EXEC mode is allowed (switch#). That mode then allows access to global configuration mode.
+
+```
 device> configure terminal
 device# enable
 device(config)# enable password cisco
-Line Console
-The following commands will assign password cisco to the switch or router console
-port. Any login attempt to the console port will require that password.
+```
+
+#### Line Console
+
+The following commands will assign password cisco to the switch or router console port. Any login attempt to the console port will require that password.
+
+```
 device(config)# line console 0
 device(config-line)# password cisco
 device(config-line)# login
-Service Password-Encryption
-The purpose of service password-encryption command is to encrypt passwords in the
-running and startup configuration scripts. It applies to all passwords except secret
-passwords. It makes device passwords unreadable for security purposes. That includes
-authentication key, enable, console, VTY and BGP neighbor passwords. It does not
-however encrypt secret passwords.
-The following IOS command is used to encrypt all plain-text passwords on a Cisco
-device. The passwords are encrypted in the running configuration and startup
-configuration script.
-router(config)# service password-encryption
-Secret PasswordThe following IOS command will configure a username called admin with privilege
-level 15 and a hidden secret password. The 5 designates the password as secret and
-hidden (encrypted) with the configuration script.
-device(config)# username admin privilege 15 secret 5 [encrypted password]
-The secret encrypted password is copy/pasted to the command line. It is common to
-copy the encrypted password from another network device. Secret passwords are based
-on MD5 hash algorithm that is uncrackable making them more secure than type 7
-passwords. In addition the secret password is encrypted automatically and do not
-require service password-encryption.
+```
+
+#### Service Password-Encryption
+
+The purpose of service password-encryption command is to encrypt passwords in the running and startup configuration scripts. It applies to all passwords except secret passwords. It makes device passwords unreadable for security purposes. That includes authentication key, enable, console, VTY and BGP neighbor passwords. It does not however encrypt secret passwords.
+
+The ```router(config)# service password-encryption``` IOS command is used to encrypt all plain-text passwords on a Cisco device. The passwords are encrypted in the running configuration and startup configuration script.
+
+#### Secret Password
+
+The ```device(config)# username admin privilege 15 secret 5 [encrypted password]``` IOS command will configure a username called admin with privilege level 15 and a hidden secret password. The 5 designates the password as secret and hidden (encrypted) with the configuration script.
+
+The secret encrypted password is copy/pasted to the command line. It is common to copy the encrypted password from another network device. Secret passwords are based on MD5 hash algorithm that is uncrackable making them more secure than type 7 passwords. In addition the secret password is encrypted automatically and do not require service password-encryption.
+
 Access to device (Source address, Telnet/SSH)
-VTYLines
-The following IOS commands will enable Telnet login, configure password cisco and
-timeout value of 5 minutes for the default VTY lines (0 4). Note that an enable password
-must be configured on the device as well for Telnet to work correctly.
+
+#### VTY Lines
+
+The following IOS commands will enable Telnet login, configure password cisco and timeout value of 5 minutes for the default VTY lines (0 4). Note that an enable password must be configured on the device as well for Telnet to work correctly.
+
+```
 device(config)# line vty 0 4
 device(config-line)# password cisco
 device(config-line)# login
 device(config-line)# exec-timeout 5
-Login Local
+```
+
+#### Login Local
+
 The IOS command login local enables the use of the local database for VTY line access.
-The username and password is manually configured in the local device database for
-user authentication. The same IOS command is used to configure console access as
-well. Any AAA server configuration with TACACS or RADIUS takes precedence over
-any login local when configured.
-device(config-line)# login local
-Device Management Protocols
-The following IOS command allows only SSH protocol traffic inbound to the default
-VTY lines (0 4). It will deny all other protocols inbound access to the VTY lines
-including Telnet. The Cisco default is to allow all protocols inbound and outbound
-access.
-device(config-line)# transport input ssh
+
+The username and password is manually configured in the local device database for user authentication. The same IOS command is used to configure console access as well. Any AAA server configuration with TACACS or RADIUS takes precedence over any login local when configured.
+
+```device(config-line)# login local```
+
+#### Device Management Protocols
+
+The ```device(config-line)# transport input ssh``` IOS command allows only SSH protocol traffic inbound to the default VTY lines (0 4). It will deny all other protocols inbound access to the VTY lines including Telnet. The Cisco default is to allow all protocols inbound and outbound access.
+
 The following describe usage of the transport command to filter protocols.
-The input | output keyword determines whether inbound or outbound traffic is permitted
-with the default to allow all inbound and outbound traffic.
+
+The input | output keyword determines whether inbound or outbound traffic is permitted with the default to allow all inbound and outbound traffic.
+
+```
 device(config-line)# transport input all (default) = allow all protocols (telnet, ssh etc.)
 device(config-line)# transport input telnet ssh = allow Telnet and SSH only
+```
+
 The following password types are encrypted:
-SSH session password
-password type 7
-enable secret password
-Login banner
-The following IOS command configures an MOTD banner for a Cisco device.
-device(config)# banner motd ^ enter text ^
+
+- SSH session password
+- password type 7
+- enable secret password
+
+#### Login banner
+
+The ```device(config)# banner motd ^ enter text ^``` IOS command configures an MOTD banner for a Cisco device.
 
 ### 6.6 Describe device security using AAA with TACACS+ and RADIUS
 
-The AAA security model includes authentication, authorization and accounting.
-authentication verifies user identity for approving access to the server
-authorization allows user access to applications and data on the server
-accounting provides audit trail of transactions for security analysis and forensics
+The AAA security model includes authentication, authorization and accounting:
+
+- authentication verifies user identity for approving access to the server
+- authorization allows user access to applications and data on the server
+- accounting provides audit trail of transactions for security analysis and forensics
+
 The following table lists characteristics and features supported with AAA server types.
-Table 6-1 Characteristics and Features of AAA Servers
-TACACS+ Cisco proprietary
-RADIUS multi-vendor open standard
-TACACS+ TCP
-RADIUS UDP
-TACACS+ separates authentication, authorization and accounting
-RADIUS integrates authentication and authorization
-TACACS+ encrypts all communication
-RADIUS encrypts passwords only
+
+AAA Server  | Characteristics
+------------|----------------
+TACACS+     | Cisco proprietary, TCP, separates authentication, authorization and accounting, encrypts all communication
+RADIUS      | multi-vendor open standard, UDP, integrates authentication and authorization, encrypts passwords only
+
 The following is a list of disadvantages with using AAA server authentication:
-AAA server is a single point of failure
-local account is required as a backup on network devices
-same AAA password is used for multiple network devices
-The following are three advantages of TACACS+ over RADIUS server.TACACS+ supports 15 privilege levels
-TACACS+ enables controls for user authorization levels
-TACACS+ allow for device administration
-TACACS+ is a server-based authentication protocol that allows defining of
-authorization policies per group. As a result TACACS+ is well suited to managing the
-access security for thousands of network devices. RADIUS is limited to privilege mode
-with network access and authentication only.
-wireless authentication
-802.1x port-based authentication
+
+- AAA server is a single point of failure
+- local account is required as a backup on network devices
+- same AAA password is used for multiple network devices
+
+The following are three advantages of TACACS+ over RADIUS server.
+
+- TACACS+ supports 15 privilege levels
+- TACACS+ enables controls for user authorization levels
+- TACACS+ allow for device administration
+
+TACACS+ is a server-based authentication protocol that allows defining of authorization policies per group. As a result TACACS+ is well suited to managing the access security for thousands of network devices.
+
+RADIUS is limited to privilege mode with network access and authentication only.
+
+#### Wireless 802.1x port-based authentication
+
 The user will often complain that access to a particular network device is not available.
-The following command will verify the login access for AAA user account is disabled.
-device# show aaa local user lockout
-Local AAA
-The local AAA authentication method will use the local username and password
-database configured on the router. The IOS command aaa authentication login default
-local enables AAA authentication to use the device local username database. There is
-an option as well to configure local authentication as failover for AAA as well.
+
+The ```device# show aaa local user lockout``` command will verify the login access for AAA user account is disabled.
+
+#### Local AAA
+
+The local AAA authentication method will use the local username and password database configured on the router. The IOS command aaa authentication login default local enables AAA authentication to use the device local username database. There is an option as well to configure local authentication as failover for AAA as well.
 
 ## 7.0 Infrastructure Management
 
 ### 7.1 Configure and verify device-monitoring protocols
 
-SNMPv2
+#### SNMPv2
+
 SNMP is a network management protocol that enables monitoring of network device.
-The following are three components that enable SNMP communication.
-MIB
-SNMP Manager
-SNMP Agent
+
+The following are three components that enable SNMP communication:
+
+- MIB
+- SNMP Manager
+
+#### SNMP Agent
+
 The Cisco network device will send all enabled notifications to the SNMP server.
-Enabling a lot of SNMP MIBs can cause high CPU utilization on Cisco devices. The
-number of queries (polling) increase with the MIBs enabled. The problem worsens
-particularly with polling of routing and ARP tables. The authentication type used by
-SNMPv2 is community strings. The following IOS command configures an SNMP
-community string named cisco with read/write access.
+
+Enabling a lot of SNMP MIBs can cause high CPU utilization on Cisco devices. The number of queries (polling) increase with the MIBs enabled. The problem worsens particularly with polling of routing and ARP tables. The authentication type used by SNMPv2 is community strings. The following IOS command configures an SNMP community string named cisco with read/write access.
+
 R1(config)# snmp-server community cisco rw
-The following IOS command will configure an SNMP server named nms.cisco.com
-with version 2c and enable trap messages.
+
+The following IOS command will configure an SNMP server named nms.cisco.com with version 2c and enable trap messages.
+
 R1(config)#snmp-server host nms.cisco.com traps version 2c
-SNMPv3
-The following three features are enhancements available with SNMPv3.
-message integrity
-authentication
-encryption
-The following are authentication protocols used by SNMPv3.
-HMAC-MD5
-HMAC-SHA
-Alert messages generated by SNMPv3 agents include both Trap and Inform. The
-purpose of Trap messages is to send alerts to the network management station. The
-network device sends a Trap to the NMS alerting that a network interface status is
-down. The Inform message is an acknowledgement of a Trap to confirm it arrived. The
-following are correct statements concerning the features of SNMPv2 and SNMPv3.
-SNMPv3 provides security enhancements
-SNMPv2 added the Inform protocol message to SNMP
-SNMPv2 added the GetBulk protocol message to SNMP
-The following command configures an SNMP server with IP address of 172.16.1.1 and
-enables SNMPv3. In addition there is MD5/SHA authentication for optimized security.
-router-2(config)# snmp-server host 172.16.1.1 version 3 auth
-Syslog Server
-The following are correct statements concerning Syslog server utilization.
-Syslog provides granular messaging to support enterprise SNMP architecture.
-Syslog provide a scalable solution for storing messages on an external server.
-Syslog is an effective solution for managing logs and is disabled by default.
-The traps are logged to the Syslog server. The default logging trap level for Syslog
-messages is to receive informational (6) and lower messages except debugging
-messages (level 7). Configure logging trap [level] command to change the default on
-Cisco network devices.
-The following IOS command enables forwarding of system messages on a Cisconetwork device to a Syslog server.
-device(config)# logging 172.16.1.10
+
+#### SNMPv3
+
+The following three features are enhancements available with SNMPv3:
+
+- message integrity
+- authentication
+- encryption
+
+The following are authentication protocols used by SNMPv3:
+
+- HMAC-MD5
+- HMAC-SHA
+
+Alert messages generated by SNMPv3 agents include both Trap and Inform. The purpose of Trap messages is to send alerts to the network management station. The network device sends a Trap to the NMS alerting that a network interface status is down. The Inform message is an acknowledgement of a Trap to confirm it arrived. The following are correct statements concerning the features of SNMPv2 and SNMPv3:
+
+- SNMPv3 provides security enhancements
+- SNMPv2 added the Inform protocol message to SNMP
+- SNMPv2 added the GetBulk protocol message to SNMP
+
+The following command configures an SNMP server with IP address of 172.16.1.1 and enables SNMPv3. In addition there is MD5/SHA authentication for optimized security.
+
+```router-2(config)# snmp-server host 172.16.1.1 version 3 auth```
+
+#### Syslog Server
+
+The following are correct statements concerning Syslog server utilization:
+
+- Syslog provides granular messaging to support enterprise SNMP architecture.
+- Syslog provide a scalable solution for storing messages on an external server.
+- Syslog is an effective solution for managing logs and is disabled by default.
+
+The traps are logged to the Syslog server. The default logging trap level for Syslog messages is to receive informational (6) and lower messages except debugging messages (level 7). Configure logging trap [level] command to change the default on Cisco network devices.
+
+The ```device(config)# logging 172.16.1.10``` IOS command enables forwarding of system messages on a Cisconetwork device to a Syslog server.
 
 ### 7.2 Troubleshoot network connectivity with
 
-ICMP echo-based IP SLA
+#### ICMP echo-based IP SLA
+
 The following two statements are correct concerning ICMP echo-based IP SLA.
-IP SLA responder is not required on the destination device
-monitors hop-by-hop response time (network latency)
+
+- IP SLA responder is not required on the destination device
+- monitors hop-by-hop response time (network latency)
 
 ### 7.3 Configure and verify device management
 
-The default number of simultaneous Telnet sessions supported by a Cisco router is five.
-They are comprised of the default VTY lines 0 4 (0,1,2,3,4)
+- The default number of simultaneous Telnet sessions supported by a Cisco router is five.
+- They are comprised of the default VTY lines 0 4 (0,1,2,3,4)
+
 The following command restore the startup configuration file from TFTP server.
-device# copy tftp: nvram:startup-config
-The following command is used to backup the startup configuration file from network
-device to TFTP server.
-device# copy nvram:startup-config tftp:
-Startup Configuration
-The following describes what the Cisco network device does when no startup
-configuration file is found during bootup:
-1. The Cisco network device first attempts to load the startup configuration from
-NVRAM (default location). There is a copy made of the startup configuration loaded
-to DRAM for active use. That is referred to as the running configuration.
-2. The network device attempts to load the startup configuration file from TFTP server
-if there is no startup configuration in NVRAM.
-3. The network device starts the initial configuration dialog mode if there is no
-configuration to a TFTP server or it is unavailable. That enables a start from scratch
-configuration. The preferred method is to restore the most recent startup
-configuration where available.
+
+```device# copy tftp: nvram:startup-config```
+
+The following command is used to backup the startup configuration file from network device to TFTP server.
+
+```device# copy nvram:startup-config tftp:```
+
+#### Startup Configuration
+
+The following describes what the Cisco network device does when no startup configuration file is found during bootup:
+
+1. The Cisco network device first attempts to load the startup configuration from NVRAM (default location). There is a copy made of the startup configuration loaded to DRAM for active use. That is referred to as the running configuration.
+2. The network device attempts to load the startup configuration file from TFTP server if there is no startup configuration in NVRAM.
+3. The network device starts the initial configuration dialog mode if there is no configuration to a TFTP server or it is unavailable. That enables a start from scratch configuration. The preferred method is to restore the most recent startup configuration where available.
+
+```
 --- System Configuration Dialog ---
 Would you like to enter initial configuration dialog? [yes/no]: yes
 Deleting the startup configuration and restarting the network devices will put the
 network interfaces in shutdown state. Entering no shutdown command on Router-1
 Gi0/0 and Router-2 Gi0/0 interfaces will enable CDP between the devices.
-Licensing
-Cisco feature set licensing is based on feature packages. Each package bundle include
-additional protocols and enhancements from the default (ipbasek9) package. For
-instance encryption protocols such as IPsec and SSH would require the securityk9
-feature license upgrade.
-Logging
+```
+
+#### Licensing
+
+Cisco feature set licensing is based on feature packages. Each package bundle include additional protocols and enhancements from the default (ipbasek9) package. For instance encryption protocols such as IPsec and SSH would require the securityk9 feature license upgrade.
+
+#### Logging
+
 The logging facility default setting is local7 for switches and routers.
-Emergencies (level 0)
-Alerts (level 1)
-Critical (level 2)
-Errors (level 3)
-Warnings (level 4)
-Notifications (level 5)
-Information (level 6)
-Debugging (level 7)
-Time zone
-The following global IOS commands assign hostname switch-1 and configures PST
-timezone for the switch. Hostnames cannot start with a number or have any spaces.
+
+- Emergencies (level 0)
+- Alerts (level 1)
+- Critical (level 2)
+- Errors (level 3)
+- Warnings (level 4)
+- Notifications (level 5)
+- Information (level 6)
+- Debugging (level 7)
+
+#### Time zone
+
+The following global IOS commands assign hostname switch-1 and configures PST timezone for the switch. Hostnames cannot start with a number or have any spaces.
+
 switch(config)# hostname switch-1
 switch-1(config)# clock timezone PST -8
-Loopback
-The loopback interface is virtual and always available when there is at least one
-physical interface up. Routers have at least two physical interfaces. The loopback
-interface is unaffected by issues with any single interface. The router cannot be managed
-when a physical interface assigned for management purposes is unavailable. The
-following example is typical of a loopback interface configuration. The standard subnet
-mask for a loopback is a /32 host mask.
+
+#### Loopback
+
+The loopback interface is virtual and always available when there is at least one physical interface up. Routers have at least two physical interfaces. The loopback interface is unaffected by issues with any single interface. The router cannot be managed when a physical interface assigned for management purposes is unavailable. The following example is typical of a loopback interface configuration. The standard subnet mask for a loopback is a /32 host mask.
+
 R1(config)# interface loopback0
 R1(config-if)# ip address 192.168.254.254 255.255.255.255
 R1(config-if)# end (return to privileged exec mode)
 
 ### 7.4 Configure and verify initial device configuration
 
-Console Settings
+#### Console Settings
+
 The Cisco network devices provide a console port for direct connection from a laptop.
-It is typically used for initial configuration and troubleshooting purposes. The following
-are default settings for the Cisco console port interface.
+It is typically used for initial configuration and troubleshooting purposes. The following are default settings for the Cisco console port interface.
+
 9600 bps, 8 data bits, 1 stop bit, no parity, no flow control
-Cisco Device Modes
+
+#### Cisco Device Modes
+
 The following table correctly match the Cisco device modes and prompts:
-Table 7-1 Cisco Device Modes and Prompts
-user EXEC mode device >
-enable mode device#
-privileged EXEC mode device(config)#
-rommon mode rommon >
-routing configuration mode router(config-router)#
-The show running-config command is used to verify any changes that were made before
-saving the running configuration.
-device# show running-config
-Network Management SVI
-The following IOS commands configure a management IP address (SVI) for a layer 2
-switch. The Cisco recommended best practice is to assign an unused VLAN for remote
-switch management. The default VLAN 1 is used to forward control traffic (CDP, VTP,
-PAgP) between switches.
+
+Cisco Device Modes         | Prompts
+---------------------------|--------
+user EXEC mode             | device>
+enable mode                | device#
+privileged EXEC mode       | device(config)#
+rommon mode                | rommon >
+routing configuration mode |  router(config-router)#
+
+The show running-config command is used to verify any changes that were made before saving the running configuration.
+
+```device# show running-config```
+
+#### Network Management SVI
+
+The following IOS commands configure a management IP address (SVI) for a layer 2 switch. The Cisco recommended best practice is to assign an unused VLAN for remote switch management. The default VLAN 1 is used to forward control traffic (CDP, VTP, PAgP) between switches.
+
+```
 switch(config)# interface vlan 100
 switch(config-if)# ip address 172.16.1.254 255.255.255.0
 switch(config-if)# no shutdown
-The following IOS command will save the running configuration changes to the startup
-configuration file:
-device# copy running-config startup-config
+```
+
+The following IOS command will save the running configuration changes to the startup configuration file:
+
+```device# copy running-config startup-config```
+
 The alternate IOS command used is the following:
-device# copy system:running-config nvram:startup-config
-The following IOS command allows the network administrator to run IOS show
-commands from global configuration mode.
-device(config)# do [show command]
+
+```device# copy system:running-config nvram:startup-config```
+
+The following IOS command allows the network administrator to run IOS show commands from global configuration mode.
+
+```device(config)# do [show command]```
+
 The following command provides a list of all active users connected to the VTY lines.
-device > show users all
+
+```device > show users all```
+
 The following IOS command displays CPU utilization for a Cisco device.
-device# show process cpu
-Show Version
-The output of show version command lists the current IOS code version along with
-feature set license. The show version command is also available from user mode
-prompt. The show version command the following operational status.
-configuration register settings
-amount of Flash and DRAM memory available
-most recent router power cycle (reboot) method used
+
+```device# show process cpu```
+
+#### Show Version
+
+The output of show version command lists the current IOS code version along with feature set license. The show version command is also available from user mode prompt. The show version command the following operational status.
 
 ### 7.5 Perform device maintenance
 
-IOS upgrades, recovery and verify
+#### IOS upgrades, recovery and verify
 
 The following table describes file transfer methods for copying IOS image and configuration files:
-
-Cisco File Transfer Methods:
 
 Protocol  | Description
 ----------|---------------------------------------------
@@ -3543,15 +3585,17 @@ SCP       | adds encryption (SSH), supports larger files
 TFTP      | server-based, not secure, UDP, single connection
 USB       | fast, network device slot, local copy
 
-IOS Upgrade
+#### IOS Upgrade
 
-The IOS image file is stored in Flash memory on Cisco devices. The Flash memory is permanent non-volatile file storage. On bootup the IOS image is loaded from Flash to DRAM volatile memory. The startup configuration is stored in permanent non-volatile NVRAM. The running configuration is the startup configuration file loaded to DRAM.Before doing any IOS upgrade to a Cisco device it is important to verify available device memory. The IOS image file will requires a minimum amount of Flash memory based on file size. In addition there is a minimum amount of DRAM required to boot the IOS image as well. The minimum required Flash/DRAM memory is listed with each IOS filename. The show version command will list the amount of available Flash and DRAM memory on the Cisco network device. The following is an example of output from show version for router Flash memory usage (bytes).
+The IOS image file is stored in Flash memory on Cisco devices. The Flash memory is permanent non-volatile file storage. On bootup the IOS image is loaded from Flash to DRAM volatile memory. The startup configuration is stored in permanent non-volatile NVRAM. The running configuration is the startup configuration file loaded to DRAM.
+
+Before doing any IOS upgrade to a Cisco device it is important to verify available device memory. The IOS image file will requires a minimum amount of Flash memory based on file size. In addition there is a minimum amount of DRAM required to boot the IOS image as well. The minimum required Flash/DRAM memory is listed with each IOS filename. The show version command will list the amount of available Flash and DRAM memory on the Cisco network device. The following is an example of output from show version for router Flash memory usage (bytes).
 
 ```[73400320 bytes used, 195035136 available, 268435456 total]```
 
 The total Flash memory installed is 256 MB. The Flash memory used by files including the current IOS is approximately 70 MB including any additional files. That leaves approximately 186 MB available for any new IOS with the original IOS image left on Flash. Compare the IOS image file size from cisco.com with the available Flash memory. The IOS upgrade from TFTP server has a copy dialog prompt to delete IOS image on flash.
 
-TFTP Server
+#### TFTP Server
 
 TFTP server support is available for managing IOS images and startup configuration files. It is an alternative to using memory on the network devices for storing files. Cisco supports loading IOS and startup configuration file from TFTP server at bootup as well.
 
@@ -3567,7 +3611,7 @@ The following IOS command will copy the IOS image file to Flash memory: ```devic
 
 The following command verifies the integrity of IOS image file on Flash memory: ```device# verify /md5 [filesystem: filename]```
 
-Cisco default configuration
+#### Cisco default configuration
 
 1. The device starts and does Power on Self Test (POST) to verify all hardware is operational. The bootstrap loader then determines where to load the IOS image based on the configuration register settings. The default setting loads the first IOS listed with any boot system command in the router startup configuration file. The boot system command points to a location of an IOS image stored in Flash memory. The file location configured with the first boot system command is used when multiple commands exist.
 2. The first IOS image listed in Flash memory (where multiple IOS images exist) is loaded when there are no boot system commands.
@@ -3578,7 +3622,7 @@ Cisco default configuration
   - Flash
   - ROM
 
-Configuration Register
+#### Configuration Register
 
 The network device starts Power On Self Test (POST) to run diagnostic software from ROM and verify all hardware is operational. The router examines the configuration register value that specifies where to load the IOS. The default value of the configuration register is 0x2102.
 
@@ -3591,7 +3635,7 @@ Configuration Register Settings:
 
 The default configuration register setting is 0x2102. That causes the Cisco device to load the IOS image file specified with the boot system command. The ```router(config)# boot system flash: [IOS filename]``` IOS command assigns the IOS image filename to use for bootup. It is a global configuration mode command.
 
-File System Management
+#### File System Management
 
 There are two options available for erasing the startup configuration and restarting a switch or router.
 
@@ -3611,7 +3655,7 @@ device# reload
 
 Cisco devices store the startup configuration file in NVRAM. The IOS command ```erase nvram:``` will delete all files from NVRAM including startup configuration. That will cause the initial configuration dialog mode to start when the device is reloaded. The IOS command erase startup-config will only delete the startup configuration file instead of all files on NVRAM.
 
-Password recovery and configuration register
+#### Password recovery and configuration register
 
 The following describes password recovery from the local console port.
 
@@ -3743,32 +3787,32 @@ The following is a list of the most common IOS commands associated with question
 
 #### Global Commands
 
-Command                         | Description
---------------------------------|------------------------
-show running-config         | Display the current running configuration script on any Cisco device.
-show version                | Display a variety of device information, such as IOS version, license feature set, configuration register setting and hardware
-show protocols              | Verify operational status (up/up), IP address and subnet mask of all network interfaces.
-show ip interface brief     | Summarizes the operational status (up/up) and IP address of all switch and router interfaces. The Status column is equivalent to Interface (Layer 1) for show interfaces command. The Protocol column is equivalent to Line Protocol (Layer 2) for show interfaces command.
-show interfaces [interface] | Display the operational status (up/up), IP address, configuration settings and errors for a
+Command                                   | Description
+------------------------------------------|------------------------
+show running-config                       | Display the current running configuration script on any Cisco device.
+show version                              | Display a variety of device information, such as IOS version, license feature set, configuration register setting and hardware
+show protocols                            | Verify operational status (up/up), IP address and subnet mask of all network interfaces.
+show ip interface brief                   | Summarizes the operational status (up/up) and IP address of all switch and router interfaces. The Status column is equivalent to Interface (Layer 1) for show interfaces command. The Protocol column is equivalent to Line Protocol (Layer 2) for show interfaces command.
+show interfaces [interface]               | Display the operational status (up/up), IP address, configuration settings and errors for a
 specific switch or router interface, such as operational status, speed, duplex, MTU and interface errors
-show cdp                    | Verify that CDP is enabled, update timer, hold timer and CDP version.
-show cdp neighbor detail    | Display all directly connected neighbor devices and confirm there is Layer 2 connectivity to each neighbor and the following neighbor details: local interface, neighbor hostname, neighbor interface, neighbor IOS version and neighbor hardware platform
-show lldp                   | Verify that LLDP is enabled and timer settings.
-show lldp neighbors detail  | Display all multi-vendor neighbors directly connected to a Cisco device and confirm there is Layer 2 connectivity to each neighbor, such as local interface, neighbor hostname, neighbor interface, neighbor IOS version and neighbor hardware platform
-show memory                 | Display the total, used and available memory on a Cisco device.
-show process cpu            | Display the CPU utilization for a Cisco device at five minute intervals.
-show environment            | Verify the operational status of fans, temperature and power supplies. In addition list the percentage of power supply utilization and what amount is available.
-do [show command]           | Run show commands from any device mode prompt.
+show cdp                                  | Verify that CDP is enabled, update timer, hold timer and CDP version.
+show cdp neighbor detail                  | Display all directly connected neighbor devices and confirm there is Layer 2 connectivity to each neighbor and the following neighbor details: local interface, neighbor hostname, neighbor interface, neighbor IOS version and neighbor hardware platform
+show lldp                                 | Verify that LLDP is enabled and timer settings.
+show lldp neighbors detail                | Display all multi-vendor neighbors directly connected to a Cisco device and confirm there is Layer 2 connectivity to each neighbor, such as local interface, neighbor hostname, neighbor interface, neighbor IOS version and neighbor hardware platform
+show memory                               | Display the total, used and available memory on a Cisco device.
+show process cpu                          | Display the CPU utilization for a Cisco device at five minute intervals.
+show environment                          | Verify the operational status of fans, temperature and power supplies. In addition list the percentage of power supply utilization and what amount is available.
+do [show command]                         | Run show commands from any device mode prompt.
 
 #### LAN Switching Technologies
 
-Command                         | Description
---------------------------------|------------------------
-show vlan brief                 | Display all configured VLANs, verify active status and any switch ports assigned.
-show vlan                       | Display all configured VLANs, verify active status and any switch ports assigned.
-show interface switchport       | Display the operational mode and administrative mode for local switch ports and enable status.
-show interfaces trunk           | Verify the operational status of trunk interfaces and list configuration settings.
-show interfaces status          | Display the Layer 2 connected / notconnect status for each switch port and configuration settings.
+Command                                   | Description
+------------------------------------------|------------------------
+show vlan brief                           | Display all configured VLANs, verify active status and any switch ports assigned.
+show vlan                                 | Display all configured VLANs, verify active status and any switch ports assigned.
+show interface switchport                 | Display the operational mode and administrative mode for local switch ports and enable status.
+show interfaces trunk                     | Verify the operational status of trunk interfaces and list configuration settings.
+show interfaces status                    | Display the Layer 2 connected / notconnect status for each switch port and configuration settings.
 show interfaces [interface] transceiver   | Display the Layer 1 characteristics of the transceiver connected to a switch port interface.
 show etherchannel summary                 | Verify all EtherChannel links configured on the local switch including the operational status.
 show interface port-channel [number]      | Verify the operational status, configuration and errors for a port channel interface assigned to an EtherChannel.
@@ -3781,51 +3825,51 @@ show mac address-table                    | Display MAC address, port number and
 
 #### Routing Technologies
 
-Command                                 | Description
-----------------------------------------|------------------------
-ping [ip address] [hostname]            | Confirms Layer 3 network connectivity between a source and destination based on sending and return of ICMP packets.
-traceroute [ip address] [hostname]      | Confirm the routing path for Layer 3 connectivity between a source and destination based on UDP packets.
-show ip route                           | Display the routing table for the local router that includes all known subnets, routing protocol, next hop address, metrics and administrative distance.
-show ip arp                             | Display the IP address and MAC address bindings in the router ARP table. The MAC address of servers and network devices are learned through ARP requests and added to the local cache.
-show ipv6 interface brief               | Verify the operational status (up/up) and IPv6 address for all router interfaces.
-show ipv6 interface [interface]         | Verify the operational status (up/up), IPv6 addressing, configuration settings and errors for a router interface, such as speed, duplex, MTU and interface errors
-show ip protocols                       | Display a variety of settings and configuration for all enabled routing protocols on the router.
-show ip ospf                            | Display various configuration settings for each OSPF process enabled on the router, such as router ID, timers, interfaces per area, area range (subnet)
-show ip ospf neighbor                   | Verify all OSPF adjacencies established with directly connected OSPF neighbors.
-show ip ospf interface [interface]      | Verify the operational status (up/up) of an OSPF enabled interface.
-show ip ospf database                   | Display the OSPF link state database topology that includes Link State Advertisements
+Command                                   | Description
+------------------------------------------|------------------------
+ping [ip address] [hostname]              | Confirms Layer 3 network connectivity between a source and destination based on sending and return of ICMP packets.
+traceroute [ip address] [hostname]        | Confirm the routing path for Layer 3 connectivity between a source and destination based on UDP packets.
+show ip route                             | Display the routing table for the local router that includes all known subnets, routing protocol, next hop address, metrics and administrative distance.
+show ip arp                               | Display the IP address and MAC address bindings in the router ARP table. The MAC address of servers and network devices are learned through ARP requests and added to the local cache.
+show ipv6 interface brief                 | Verify the operational status (up/up) and IPv6 address for all router interfaces.
+show ipv6 interface [interface]           | Verify the operational status (up/up), IPv6 addressing, configuration settings and errors for a router interface, such as speed, duplex, MTU and interface errors
+show ip protocols                         | Display a variety of settings and configuration for all enabled routing protocols on the router.
+show ip ospf                              | Display various configuration settings for each OSPF process enabled on the router, such as router ID, timers, interfaces per area, area range (subnet)
+show ip ospf neighbor                     | Verify all OSPF adjacencies established with directly connected OSPF neighbors.
+show ip ospf interface [interface]        | Verify the operational status (up/up) of an OSPF enabled interface.
+show ip ospf database                     | Display the OSPF link state database topology that includes Link State Advertisements
 (LSAs) for all OSPF neighbors advertising from all areas.
-show ipv6 ospf interface [interface]    | Verify the operational status (up/up) of an OSPF for IPv6 enabled interface.
-show ipv6 ospf neighbor detail          | Display all OSPFv3 for IPv6 adjacencies established with OSPF neighbors.
-show ip eigrp neighbors                 | Display all EIGRP adjacencies established with directly connected EIGRP neighbors.
-show ip eigrp interfaces                | Display all active EIGRP interfaces associated with an autonomous system (AS).
-show ipv6 eigrp neighbors               | Display all EIGRP for IPv6 adjacencies established with directly connected neighbors.
-show ipv6 eigrp interfaces [interface]  | Verify all active EIGRP for IPv6 interfaces associated with an autonomous system (AS).
-show ip eigrp topology                  | Display all successor and feasible successor routes to a destination in addition to
+show ipv6 ospf interface [interface]      | Verify the operational status (up/up) of an OSPF for IPv6 enabled interface.
+show ipv6 ospf neighbor detail            | Display all OSPFv3 for IPv6 adjacencies established with OSPF neighbors.
+show ip eigrp neighbors                   | Display all EIGRP adjacencies established with directly connected EIGRP neighbors.
+show ip eigrp interfaces                  | Display all active EIGRP interfaces associated with an autonomous system (AS).
+show ipv6 eigrp neighbors                 | Display all EIGRP for IPv6 adjacencies established with directly connected neighbors.
+show ipv6 eigrp interfaces [interface]    | Verify all active EIGRP for IPv6 interfaces associated with an autonomous system (AS).
+show ip eigrp topology                    | Display all successor and feasible successor routes to a destination in addition to
 DUAL states.
-show ip rip neighbors                   | Display all active sessions the local router has established with RIPv2 neighbors that
+show ip rip neighbors                     | Display all active sessions the local router has established with RIPv2 neighbors that
 include neighbor IP address and interface.
 
 #### WAN Technologies
 
-Command                               | Description
---------------------------------------|------------------------
-show interfaces multilink [interface] | Display the IP address and encapsulation type for the multilink interface.
-show ppp multilink                    | Verify the multilink interface status as enabled for the router.
-show pppoe session                    | Display all PPP over Ethernet (PPPoE) sessions enabled for the router.
-show ip bgp neighbors                 | Display all BGP neighbor peering sessions established and TCP connection information.
-show ip bgp summary                   | Display all BGP routing information for the neighbor connections including prefix (subnet), attribute and prefix (subnet) information.
-show interface tunnel [number]        | Verify the operational status of the tunnel and the assigned IP address.
+Command                                   | Description
+------------------------------------------|------------------------
+show interfaces multilink [interface]     | Display the IP address and encapsulation type for the multilink interface.
+show ppp multilink                        | Verify the multilink interface status as enabled for the router.
+show pppoe session                        | Display all PPP over Ethernet (PPPoE) sessions enabled for the router.
+show ip bgp neighbors                     | Display all BGP neighbor peering sessions established and TCP connection information.
+show ip bgp summary                       | Display all BGP routing information for the neighbor connections including prefix (subnet), attribute and prefix (subnet) information.
+show interface tunnel [number]            | Verify the operational status of the tunnel and the assigned IP address.
 
 #### Infrastructure Services
 
-Command                   | Description
---------------------------|------------------------
-show ip dhcp conflict     | Display all IP address conflicts detected on the IOS DHCP server when allocating IP addresses to DHCP clients.
-show ip dhcp binding      | Display the IP address and MAC address of DHCP client, lease expiration and assignment type on the IOS DCHP server.
-show ip dhcp snooping     | Verify that DHCP snooping is enabled along with assigned VLANs and interfaces configured for snooping.
-show standby              | Display the HSRP configuration on the local router for the router group configured.
-show ip nat translations  | Verify the NAT addressing assigned for translating between private and public addressing.
+Command                                   | Description
+------------------------------------------|------------------------
+show ip dhcp conflict                     | Display all IP address conflicts detected on the IOS DHCP server when allocating IP addresses to DHCP clients.
+show ip dhcp binding                      | Display the IP address and MAC address of DHCP client, lease expiration and assignment type on the IOS DCHP server.
+show ip dhcp snooping                     | Verify that DHCP snooping is enabled along with assigned VLANs and interfaces configured for snooping.
+show standby                              | Display the HSRP configuration on the local router for the router group configured.
+show ip nat translations                  | Verify the NAT addressing assigned for translating between private and public addressing.
 
 #### Infrastructure Security
 
@@ -3838,20 +3882,20 @@ show ipv6 access-lists                    | Display all IPv6 ACLs configured on 
 
 #### Infrastructure Management
 
-Command           | Description
-------------------|------------------------
-show ntp status   | Verify the synchronization status to an NTP peer, IP address of NTP peer, local stratum level and clock signaling.
-show users all    | Display all inbound connections to the local device including VTY, console and AUX lines.
-show terminal     | Display terminal settings for the current terminal line and transport protocols allowed for remote management.
-show flash        | List the files currently on flash memory including available memory.
-erase nvram:      | Delete all the files on NVRAM including the startup configuration.
-show logging      | Verify the logging configuration and where it is enabled/disabled on the network device.
+Command                                   | Description
+------------------------------------------|------------------------
+show ntp status                           | Verify the synchronization status to an NTP peer, IP address of NTP peer, local stratum level and clock signaling.
+show users all                            | Display all inbound connections to the local device including VTY, console and AUX lines.
+show terminal                             | Display terminal settings for the current terminal line and transport protocols allowed for remote management.
+show flash                                | List the files currently on flash memory including available memory.
+erase nvram:                              | Delete all the files on NVRAM including the startup configuration.
+show logging                              | Verify the logging configuration and where it is enabled/disabled on the network device.
 
 #### Host Commands
 
-Command                         | Description
---------------------------------|------------------------
-ipconfig /all                   | Verify the network connectivity status, IP addressing and MAC address for a host.
-arp -a                          | Display the contents of the local ARP cache.
-tracert [ip address] [hostname] | The host version of traceroute command to verify routing path from the host.
-nslookup [domain name]          | Confirm DNS server is working correctly.
+Command                                   | Description
+------------------------------------------|------------------------
+ipconfig /all                             | Verify the network connectivity status, IP addressing and MAC address for a host.
+arp -a                                    | Display the contents of the local ARP cache.
+tracert [ip address] [hostname]           | The host version of traceroute command to verify routing path from the host.
+nslookup [domain name]                    | Confirm DNS server is working correctly.
