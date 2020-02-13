@@ -3,25 +3,33 @@
 [gimmick:theme](cosmo)
 
 [Wiki]()
-* # Linux
-* [Apache](linux/apache/README.md)
-* [HAProxy]()
-* [OpenLDAP]()
-* [Postfix](linux/postfix/README.md)
-* [Samba 4](linux/samba4/README.md)
-* [Sed](linux/sed/README.md)
-* [Storage](linux/storage/README.md)
-* [Zabbix](linux/zabbix/README.md)
+* # Development
+* [Bash]()
+* [Python]()
+
+* # Cloud and DevOps
+* [Linux LPIC-1](linux/lpic1/)
+* [Linux LPIC-2](linux/lpic2/)
+* [Linux LPIC-3](linux/lpic3/)
+* [Linux DevOps Engineer](linux/devops/)
+* [AWS SysOps Administrator](aws/sysops/)
+* [AWS DevOps Engineering](aws/devops/)
+* [Microsoft MCSA](microsoft/mcsa/)
+* [Microsoft MCSE](microsoft/mcse/)
+* [Azure Administrator](microsoft/azure/administrator/)
+* [Azure DevOps Engineer](microsoft/azure/devops/)
 - - - -
 
-* # Microsoft
-* [AD CS](microsoft/ad_cs/README.md)
-* [AD DS](microsoft/ad_ds/README.md)
-* [DNSSec](microsoft/dnssec/README.md)
-* [PowerShell](microsoft/powershell/README.md)
-* [WinRM](microsoft/winrm/README.md)
+* # Networking
+* [Cisco CCNA](cisco/ccna/)
 - - - -
 
-[About](about/README.md)
+* # Project Management
+* [PMBOK](pmbok/)
+- - - -
+
+* # Information Secutiry
+* [LGPD](lgpd/)
+
 - - - -
 [gimmick:themechooser](Select a theme)

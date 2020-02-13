@@ -1,10 +1,4 @@
-# LGPD
-
-## Objetivo da LGPD
-
-A LDPG tem como principal objetivo empoderar o consumidor e garantir a indenização na ocorrência de danos causados ao dono original dos dados coletados, ou seja, o usuário.
-
-## Resumindo a LGPD
+# Lei Geral de Proteção de Dados
 
 Através da Lei 13.709/18 (14/08/2018), o Brasil passou a fazer parte do grupo de países que possuem uma Lei Geral de Proteção de Dados. Sua proposta inspirada na legislação europeia, a General Data Protection Regulation (GDPR).
 
@@ -20,7 +14,7 @@ Em casos de descumprimento da Lei, as empresas podem pagar multas que variam de 
 
 As empresas passam a ter até fevereiro de 2020 para se adequar às exigências da Lei, que será posta em prática em agosto de 2020.
 
-Processos já implementados para atender a GDPR podem ser adaptados para a LGPD
+Processos já implementados para atender a GDPR podem ser adaptados para a LGPD.
 
 ## Desafios de gestão e governança de privacidade
 
@@ -29,22 +23,18 @@ Processos já implementados para atender a GDPR podem ser adaptados para a LGPD
 - Gestão do ciclo de vida dos dados pessoais (data mapping & data discovery)
 - Implementação de técnicas de anonimização (os dados anonimizados não serão considerados dados pessoais pela lei desde que o processo não seja reversível)
 
-## Motivadores da Lei
+## Motivadores da LGPD: caso Cambridge Analytica
 
-### Caso Cambridge Analytica
+O caso da Cambridge Analytica impulsionou a aprovação da LGPD. A Cambridge Analytica planejava atuar nas eleições brasileiras de 2018, expondo assim a necessidade de ter uma lei que regulasse o tratamento de dados pessoais.
 
-- Compra de informações pessoais coletadas por um app externo ao Facebook
-- Usuários do app deram seu “OK” para que seus dados fossem utilizados para fins acadêmicos
-- Estes usuários não faziam ideia de que seus dados seriam usados nas eleições americanas de 2016
+- Compra de informações pessoais eram coletadas por um app externo ao Facebook
+- Usuários do app deram seu "ok" para que seus dados fossem utilizados para **fins acadêmicos**
+- A venda ou uso dos dados para propaganda era proibida pelo Facebook, mas não havia controle sobre seu uso
+- Essas informações pessoais foram usadas para fins políticos nas eleiçoes americanas de 2016, sem consentimento dos usuários
+- Cerca de **50 milhões de usuários** tiveram dados coletados sem autorização
+- O Facebook nega o mau uso de informações dos seus usuários até hoje
 
-1. A venda ou uso dos dados para propaganda era proibida pelo Facebook, mas não havia controle sobre seu uso
-2. Informações pessoais foram usadas para fins políticos sem consentimento
-3. Cerca de 50 milhões de usuários tiveram dados coletados sem autorização
-4. O Facebook nega o mau uso de informações dos seus usuários até hoje
-
-**O caso da Cambridge Analytica impulsionou a aprovação da LGPD. A Cambridge Analytica planejava atuar nas eleições brasileiras de 2018, expondo assim a necessidade de ter uma lei que regulasse o tratamento de dados pessoais.**
-
-## Como funciona o tratamento de dados pessoais com a LGPD
+## Tratamento de dados pessoais com a LGPD
 
 - Regulamenta o tratamento de dados pessoais
 - Delimita a linha entre o tratamento legal e ilegal de dados por uma empresa
@@ -89,7 +79,7 @@ A LGPD se preocupa em garantir a privacidade e controle de dados pelo próprio u
 
 Todo usuário tem o direito de:
 
-![SEUS DIREITOS](preview-icones-direitos.png)
+![SEUS DIREITOS](img/direitos.png)
 
 ## Penalidades para empresas
 
@@ -203,11 +193,9 @@ Vale reforçar que a LGPD permite a transferência de dados além-fronteira, des
 - Com a autorização da ANPD
 - Comprovado que o controlador segue a LGPD na forma de normas globais, selos, certificados e códigos de conduta
 
-### Avanço do Brasil em proteção de dados pessoais
+### Avanço do Brasil na proteção de dados pessoais
 
-Confira a linha do tempo da LGPD no país. Há sim conquistas a comemorar. Porém, ainda há muitos desafios a resolver.
-
-![LINHA DO TEMPO](linha-do-tempo.png)
+![LINHA DO TEMPO](img/linha-do-tempo.png)
 
 ## Regulamentação da LGPD
 

@@ -1,3 +1,0 @@
-- [PMBOK 6th Ed. (ptbr)]()
-- [PMBOK Flow]()
-- [PMBOK Flow (simplified)]()

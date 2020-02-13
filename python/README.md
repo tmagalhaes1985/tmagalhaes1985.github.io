@@ -1,2 +1,0 @@
-- [Learn Python the Hard Way]()
-- [Learn More Python the Hard Way]()
