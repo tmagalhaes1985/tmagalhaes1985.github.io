@@ -1,19 +1,22 @@
 #!/bin/bash
+# Asks for user password
+sudo true
 
 # Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 
-sudo sh get-docker.sh
-sudo usermod -aG docker $USER
-sudo systemctl enable docker && sudo systemctl start docker
+sh get-docker.sh
+usermod -aG docker $USER
+systemctl enable docker && systemctl start docker
 
 # Docker Compose
 
 # Check at https://github.com/docker/compose/releases/latest which is the latest version available
-COMPOSE_VERSION="1.25.4"
+#COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name')
 
-sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 
 : '
 # Docker Stacks
