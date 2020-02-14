@@ -1,48 +1,30 @@
 # HAProxy
-
-O HAProxy é uma solução gratuita, rápida e confiável, que oferece alta disponibilidade, balanceamento de carga e proxy para aplicativos Web.
-
-É amplamente utilizado em sites de tráfego intenso, e alguns são sites mais visitados do mundo.
-
-Ao longo dos anos, tornou-se o balanceador de carga default fornecido com a maioria das distribuições Linux, além de geralmente ser implantado por padrão em plataformas de nuvem.
-
-Como o HAProxy não anuncia a si mesmo, só sabemos que ele está em uso quando os administradores informam :-)
-
-Seu modo de operação torna sua integração em arquiteturas existentes muito fácil e sem riscos, enquanto oferece a possibilidade de não expor servidores frágeis à rede:
-
 ![Proxy mode](haproxy-pmode.png)
 
 ## Balanceamento de carga
-
 O balanceamento de carga consiste na agregação de vários componentes para obter uma capacidade de processamento total acima da capacidade individual de cada componente, sem qualquer intervenção do usuário final e de forma escalonável.
-
-Exemplos de balanceamento de carga:
-
-- Agendamento de processos em sistemas com vários processadores
-- Balanceamento de carga de link (por exemplo, EtherChannel, Bonding)
-- Balanceamento de carga de endereços IP (por exemplo, ECMP, round-robin de DNS)
-- Balanceamento de carga do servidor (via balanceadores de carga)
 
 Em ambientes da Web, esses componentes são chamados de "balanceador de carga de rede", pois essa atividade é, de longe, o caso de uso mais comum.
 
-## Implantação do HAProxy
-
+## Configuração básica do HAProxy
 ```bash
 # Configurações globais
-
 global
         log         127.0.0.1 local2
 
         chroot      /var/lib/haproxy
         pidfile     /var/run/haproxy.pid
 
-        maxconn     4000 # Quantidade máxima de conexões globais. O ideal é realizar um teste de carga para definir este número
+        # Quantidade máxima de conexões globais
+        # O ideal é realizar um teste de carga com o Jmeter para definir este número
+        maxconn     4000
 
         user        haproxy
         group       haproxy
         daemon
 
-        stats socket /var/run/haproxy/info.sock mode 666 level user # Habilita estatísticas via socket para o monitoramento
+        # Habilita estatísticas via socket para o monitoramento
+        stats socket /var/run/haproxy/info.sock mode 666 level user
 
 defaults
         mode                    http
@@ -77,23 +59,24 @@ frontend http
 
         use_backend reverseproxy if is_reverseproxy
 
-# Frontend https
+# Frontend HTTPS
 frontend https
         bind *:443 ssl crt /etc/ssl/private/wildcard.pem
         mode http
 
     acl is_reverseproxy hdr(host) -i <FQDN>
 
-    use_backend gampes if is_gampes
-        use_backend reverseproxy if is_reverseproxy
+    use_backend reverseproxy if is_reverseproxy
 
-backend reverseproxy # Defina múltiplos backends a partir daqui
+# Defina múltiplos backends a partir daqui
+backend reverseproxy
         balance roundrobin
         mode http
         option forwardfor
     http-request set-header X-Forwarded-Port %[dst_port]
         http-request add-header X-Forwarded-Proto https if { ssl_fc }
-        server HOSTNAME IPADDR:PORT # É possível assinalar múltiplos servidores
+        # Defina quantos servidores forem necessários
+        server HOSTNAME IPADDR:PORT
         server HOSTNAME IPADDR:PORT
 
 # Provê um ponto de estatísticas do HAProxy
